@@ -415,8 +415,8 @@
           }
         });
       }, {
-        threshold: 0.15,
-        rootMargin: "0px 0px -5% 0px"
+        threshold: 0.20, // 增加閾值：圖片必須有 20% 進入畫面才會計算
+        rootMargin: "0px 0px -25% 0px" // 延遲觸發：要求元素必須超過螢幕底部往上 25% 的位置，這樣確保使用者有看到一開始的灰階
       });
 
       document.querySelectorAll('.reveal-target').forEach(img => {
@@ -467,7 +467,6 @@
     <div class="ambient-glow-top"></div>
     <div class="flex flex-col lg:h-screen border-b lg:border-b-0 lg:border-r border-zinc-900 bg-zinc-950">
       <div class="h-[55vh] lg:flex-1 w-full relative bg-zinc-900">
-        <!-- 加入 absolute inset-0 確保背景圖片不會影響外層高度 -->
         <img id="heroBackground" alt="Billy Kong 江尚峰 澳門國際幻術師 舞台肖像" class="hidden absolute inset-0 w-full h-full object-cover object-top" />
       </div>
       <div class="w-full p-6 sm:p-8 lg:p-12 xl:p-16 relative z-10 shrink-0">
@@ -489,16 +488,16 @@
       </div>
     </div>
 
-    <!-- 首頁三張預覽圖與 Logo (修復 iOS 跑位問題：強制比例 + 絕對定位) -->
+    <!-- 首頁三張預覽圖與 Logo -->
     <div class="h-auto lg:h-[calc(100vh)] bg-zinc-900 flex flex-wrap gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
       <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
-        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-700" />
+        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
-        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-700" />
+        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
-        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-700" />
+        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
         <div id="logoFallback" class="text-center p-4 sm:p-6 relative z-10">
@@ -609,7 +608,7 @@
             
             <div class="group flex flex-col sm:flex-row gap-6 bg-zinc-900/30 border border-zinc-800/50 p-4 lg:p-6 hover:bg-zinc-900 transition-all">
               <div class="w-full sm:w-48 h-56 sm:h-48 bg-zinc-800 flex-shrink-0 relative overflow-hidden">
-                <img id="tour1" alt="Billy Kong IMAGINE NATION 幻 香港深圳巡演幻術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-500" />
+                <img id="tour1" alt="Billy Kong IMAGINE NATION 幻 香港深圳巡演幻術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out" />
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">IMAGINE NATION 幻</h4>
@@ -620,7 +619,7 @@
 
             <div class="group flex flex-col sm:flex-row gap-6 bg-zinc-900/30 border border-zinc-800/50 p-4 lg:p-6 hover:bg-zinc-900 transition-all">
               <div class="w-full sm:w-48 h-56 sm:h-48 bg-zinc-800 flex-shrink-0 relative overflow-hidden">
-                <img id="tour2" alt="Billy Kong 秀都魔幻 海南三亞大型駐場魔術秀" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-500" />
+                <img id="tour2" alt="Billy Kong 秀都魔幻 海南三亞大型駐場魔術秀" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out" />
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">秀都魔幻</h4>
@@ -631,7 +630,7 @@
 
             <div class="group flex flex-col sm:flex-row gap-6 bg-zinc-900/30 border border-zinc-800/50 p-4 lg:p-6 hover:bg-zinc-900 transition-all">
               <div class="w-full sm:w-48 h-56 sm:h-48 bg-zinc-800 flex-shrink-0 relative overflow-hidden">
-                <img id="tour3" alt="Billy Kong 廣州長隆歡樂世界 魔法奇幻之旅 主秀幻術師" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-500" />
+                <img id="tour3" alt="Billy Kong 廣州長隆歡樂世界 魔法奇幻之旅 主秀幻術師" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out" />
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">廣州長隆歡樂世界 《魔法奇幻之旅》</h4>
@@ -642,7 +641,7 @@
 
             <div class="group flex flex-col sm:flex-row gap-6 bg-zinc-900/30 border border-zinc-800/50 p-4 lg:p-6 hover:bg-zinc-900 transition-all">
               <div class="w-full sm:w-48 h-56 sm:h-48 bg-zinc-800 flex-shrink-0 relative overflow-hidden">
-                <img id="tour4" alt="Billy Kong 香港藝術節大館 藝術外賣 魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-500" />
+                <img id="tour4" alt="Billy Kong 香港藝術節大館 藝術外賣 魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out" />
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">Hong Kong Arts Festival @ Tai Kwun</h4>
@@ -760,51 +759,51 @@
         
         <div id="logoCell1" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell2" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell3" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell4" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell5" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell6" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell7" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell8" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell9" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell10" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell11" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
         <div id="logoCell12" class="logo-cell hidden items-center justify-center h-28 sm:h-36 bg-zinc-900/30 border border-zinc-800/50 p-4 sm:p-6 glow-hover">
           <span class="logo-fallback text-zinc-400 font-serif text-sm sm:text-base text-center leading-snug"></span>
-          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-500 absolute reveal-target" alt="" />
+          <img class="logo-img hidden max-h-14 sm:max-h-20 max-w-[85%] object-contain grayscale opacity-50 reveal-opacity-50 transition-all duration-1000 ease-out absolute reveal-target" alt="" />
         </div>
       </div>
       <!-- 🌟 Logo 牆結束 🌟 -->
@@ -812,7 +811,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
           <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
-            <img id="brand1" alt="Billy Kong Hermès VIP 客戶體驗魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-700" />
+            <img id="brand1" alt="Billy Kong Hermès VIP 客戶體驗魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Hermès</span>
@@ -821,7 +820,7 @@
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
           <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
-            <img id="brand2" alt="Billy Kong 澳門國際機場 國際航線推廣魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-700" />
+            <img id="brand2" alt="Billy Kong 澳門國際機場 國際航線推廣魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Macau International Airport</span>
@@ -830,7 +829,7 @@
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
           <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
-            <img id="brand3" alt="Billy Kong 澳門國際環保合作發展論壇 2026 環保主題魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-700" />
+            <img id="brand3" alt="Billy Kong 澳門國際環保合作發展論壇 2026 環保主題魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">澳門國際環保合作發展論壇 2026</span>
@@ -839,7 +838,7 @@
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
           <div class="h-64 sm:h-72 bg-zinc-800 relative overflow-hidden">
-            <img id="brand4" alt="Billy Kong 澳門田耕閣手信 幸運神朱古力新品發布魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-700" />
+            <img id="brand4" alt="Billy Kong 澳門田耕閣手信 幸運神朱古力新品發布魔術表演" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">澳門田耕閣手信</span>
@@ -940,7 +939,7 @@
         
         <div class="group relative bg-zinc-900 overflow-hidden border border-zinc-800 glow-hover">
           <div class="h-48 lg:h-64 bg-zinc-800 relative overflow-hidden">
-            <img id="service1" alt="Billy Kong 近距離 VIP 魔術表演 私人晚宴" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-700" />
+            <img id="service1" alt="Billy Kong 近距離 VIP 魔術表演 私人晚宴" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Close-up & VIP Magic<br/><span class="text-lg text-zinc-400">近距離及 VIP 魔術</span></h4>
@@ -953,7 +952,7 @@
         
         <div class="group relative bg-zinc-900 overflow-hidden border border-zinc-800 glow-hover">
           <div class="h-48 lg:h-64 bg-zinc-800 relative overflow-hidden">
-            <img id="service2" alt="Billy Kong 舞台幻術演出 企業活動表演" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-700" />
+            <img id="service2" alt="Billy Kong 舞台幻術演出 企業活動表演" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Stage Illusion Show<br/><span class="text-lg text-zinc-400">互動舞台魔術演出</span></h4>
@@ -966,7 +965,7 @@
 
         <div class="group relative bg-zinc-900 overflow-hidden border border-zinc-800 glow-hover">
           <div class="h-48 lg:h-64 bg-zinc-800 relative overflow-hidden">
-            <img id="service3" alt="Billy Kong 品牌訂製魔術體驗 產品發布表演" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-700" />
+            <img id="service3" alt="Billy Kong 品牌訂製魔術體驗 產品發布表演" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Brand Experience Design<br/><span class="text-lg text-zinc-400">品牌訂製魔術體驗</span></h4>
@@ -979,7 +978,7 @@
 
         <div class="group relative bg-zinc-900 overflow-hidden border border-zinc-800 glow-hover">
           <div class="h-48 lg:h-64 bg-zinc-800 relative overflow-hidden">
-            <img id="service4" alt="Billy Kong 全程製作顧問 幻術技術統籌" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-700" />
+            <img id="service4" alt="Billy Kong 全程製作顧問 幻術技術統籌" class="hidden absolute inset-0 reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-all duration-1000 ease-out" />
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Creative Consultation<br/><span class="text-lg text-zinc-400">全程製作顧問</span></h4>
