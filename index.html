@@ -282,6 +282,38 @@
       video4: "",
     };
 
+    // ==========================================
+    // 🌟 相片集設定區（最多 24 張）
+    // 貼上圖片網址，留空 "" 則自動跳過
+    // caption 是圖片說明（可選，留空也沒問題）
+    // ==========================================
+    const MY_GALLERY = [
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+      { url: "", caption: "" },
+    ];
+
     document.addEventListener("DOMContentLoaded", () => {
       Object.entries(MY_PHOTOS).forEach(([id, url]) => {
         const img = document.getElementById(id);
@@ -360,6 +392,65 @@
           if (iframeWrap) iframeWrap.classList.add('hidden');
         }
       });
+
+      // 🌟 相片集 Gallery 初始化
+      const galleryGrid = document.getElementById('galleryGrid');
+      const gallerySection = document.getElementById('gallerySection');
+      const lb = document.getElementById('galleryLightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbCaption = document.getElementById('lbCaption');
+      const lbCounter = document.getElementById('lbCounter');
+
+      const activePhotos = MY_GALLERY.filter(p => p.url && p.url.trim() !== '');
+
+      if (gallerySection && activePhotos.length > 0) {
+        gallerySection.classList.remove('hidden');
+        activePhotos.forEach((photo, i) => {
+          const cell = document.createElement('div');
+          cell.className = 'relative overflow-hidden bg-zinc-900 aspect-square cursor-pointer group';
+          cell.innerHTML = `
+            <img src="${photo.url}" alt="${photo.caption || '演出相片 ' + (i+1)}"
+              loading="lazy" decoding="async"
+              class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
+            ${photo.caption ? `<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300"><p class="text-white text-xs font-serif tracking-wider">${photo.caption}</p></div>` : ''}
+          `;
+          cell.addEventListener('click', () => openLightbox(i));
+          galleryGrid.appendChild(cell);
+        });
+      }
+
+      let lbCurrent = 0;
+      function openLightbox(i) {
+        lbCurrent = i;
+        lbImg.src = activePhotos[i].url;
+        lbImg.alt = activePhotos[i].caption || '';
+        lbCaption.textContent = activePhotos[i].caption || '';
+        lbCounter.textContent = (i + 1) + ' / ' + activePhotos.length;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox() {
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+      function lbPrev() { openLightbox((lbCurrent - 1 + activePhotos.length) % activePhotos.length); }
+      function lbNext() { openLightbox((lbCurrent + 1) % activePhotos.length); }
+
+      if (lb) {
+        document.getElementById('lbClose').addEventListener('click', closeLightbox);
+        document.getElementById('lbPrev').addEventListener('click', lbPrev);
+        document.getElementById('lbNext').addEventListener('click', lbNext);
+        lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+        document.addEventListener('keydown', e => {
+          if (lb.classList.contains('hidden')) return;
+          if (e.key === 'ArrowLeft')  lbPrev();
+          if (e.key === 'ArrowRight') lbNext();
+          if (e.key === 'Escape')     closeLightbox();
+        });
+      }
 
       lucide.createIcons();
 
@@ -1006,6 +1097,40 @@
       </div>
     </div>
   </section>
+
+  <!-- 🌟 相片集 Gallery — 預設隱藏，有相片才自動顯示 -->
+  <section id="gallerySection" class="hidden py-12 sm:py-16 lg:py-24 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16">
+      <h2 class="text-xs tracking-[0.3em] text-zinc-500 uppercase mb-4 text-center font-serif">Behind The Curtain</h2>
+      <h3 class="text-3xl sm:text-4xl font-serif text-center text-white mb-3">演出花絮</h3>
+      <p class="text-center text-zinc-600 text-sm font-serif mb-10 sm:mb-14">點擊任一張相片放大瀏覽</p>
+      <!-- 縮圖網格：JS 動態填入，手機 2 列、平板 3 列、桌面 4 列 -->
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3"></div>
+    </div>
+  </section>
+
+  <!-- Lightbox overlay -->
+  <div id="galleryLightbox" class="hidden fixed inset-0 z-[100] bg-black/92 items-center justify-center p-4">
+    <!-- 關閉按鈕 -->
+    <button id="lbClose" aria-label="關閉" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center border border-zinc-700 hover:border-gold text-zinc-400 hover:text-white transition-colors rounded-full">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <!-- 計數器 -->
+    <div id="lbCounter" class="absolute top-5 left-1/2 -translate-x-1/2 text-zinc-500 text-xs font-serif tracking-widest"></div>
+    <!-- 上一張 -->
+    <button id="lbPrev" aria-label="上一張" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-zinc-700 hover:border-gold text-zinc-400 hover:text-white transition-colors rounded-full">
+      <i data-lucide="chevron-left" class="w-5 h-5"></i>
+    </button>
+    <!-- 大圖 -->
+    <div class="flex flex-col items-center max-w-5xl w-full max-h-[85vh]">
+      <img id="lbImg" src="" alt="" class="max-w-full max-h-[75vh] object-contain rounded-sm shadow-2xl">
+      <p id="lbCaption" class="mt-4 text-zinc-400 text-sm font-serif text-center tracking-wider min-h-[1.5rem]"></p>
+    </div>
+    <!-- 下一張 -->
+    <button id="lbNext" aria-label="下一張" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-zinc-700 hover:border-gold text-zinc-400 hover:text-white transition-colors rounded-full">
+      <i data-lucide="chevron-right" class="w-5 h-5"></i>
+    </button>
+  </div>
 
   <footer class="py-12 sm:py-16 lg:py-24 bg-zinc-950 border-t border-zinc-900 text-center">
     <div class="max-w-3xl mx-auto px-6">
