@@ -18,6 +18,7 @@
   <link rel="sitemap" type="application/xml" href="/BillyKong-portfolio/sitemap.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+TC:wght@400;500;700&display=swap">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -65,15 +66,14 @@
   <meta name="twitter:description" content="Asia core team member handpicked by Franz Harary, 20+ years of international stage experience, 3,000+ performances, resident magician at five-star hotels in Macau.">
   <meta name="twitter:image" content="https://billykongmagic.github.io/BillyKong-portfolio/hero.jpg">
 
-  <!-- 引入 Tailwind CSS 進行排版 -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Tailwind CSS（本地編譯版，取代開發用 CDN） -->
+  <link rel="stylesheet" href="tailwind.css">
   <!-- 引入 Lucide Icons 圖示庫 -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* 🌟 匯入高階字體：Playfair Display (英文) + Noto Serif TC (中文) */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+TC:wght@400;500;700&display=swap');
-    
+    /* 🌟 字體已改用 <link> 標籤在 head 提早載入，見上方 preconnect 區塊 */
+
     .font-serif {
       font-family: "Playfair Display", "Noto Serif TC", serif !important;
     }
