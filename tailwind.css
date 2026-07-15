@@ -26,3 +26,20 @@
 .bg-black\/92{background-color:rgba(0,0,0,.92)}
 .hover\:border-gold:hover{border-color:var(--gold) !important}
 .hover\:text-gold:hover{color:var(--gold) !important}
+
+/* 🌟 手機版 Hero 網格修正 + 呼吸區排版微調（2026-07-15 追加） */
+.py-16{padding-top:4rem;padding-bottom:4rem}
+.mt-5{margin-top:1.25rem}
+.mt-8{margin-top:2rem}
+@media (min-width:640px){
+  .sm\:w-16{width:4rem}
+  .sm\:mb-10{margin-bottom:2.5rem}
+  .sm\:mt-6{margin-top:1.5rem}
+  .sm\:mt-10{margin-top:2.5rem}
+  .sm\:leading-snug{line-height:1.375}
+}
+@media (min-width:1024px){
+  .lg\:grid-rows-\[1\.6fr_1fr\]{grid-template-rows:1.6fr 1fr}
+  .lg\:row-span-2{grid-row:span 2/span 2}
+  .lg\:max-w-4xl{max-width:56rem}
+}
