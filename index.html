@@ -585,23 +585,25 @@
     </div>
 
     <!-- 首頁三張預覽圖與 Logo -->
-    <div class="h-auto lg:h-[calc(100vh)] bg-zinc-900 flex flex-wrap gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
-      <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
+    <div class="h-auto lg:h-[calc(100vh)] bg-zinc-900 grid grid-cols-2 grid-rows-[1.6fr_1fr] gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
+      <div class="relative overflow-hidden group bg-zinc-800 row-span-2 aspect-square lg:aspect-auto">
         <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
         <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
-        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
-      </div>
-      <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
-        <div id="logoFallback" class="text-center p-4 sm:p-6 relative z-10">
-          <i data-lucide="sparkles" class="w-8 h-8 mx-auto mb-2 sm:mb-3 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
-          <p class="text-xs sm:text-sm tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
+      <div class="grid grid-cols-2 gap-1 lg:gap-2">
+        <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
+          <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
         </div>
-        <!-- Logo 使用相對定位避免擠壓變形 -->
-        <img id="logo" alt="Billy Kong Magic Logo" class="hidden relative z-20 w-1/2 max-w-[140px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+        <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
+          <div id="logoFallback" class="text-center p-3 relative z-10">
+            <i data-lucide="sparkles" class="w-6 h-6 mx-auto mb-2 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
+            <p class="text-[10px] tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
+          </div>
+          <!-- Logo 使用相對定位避免擠壓變形 -->
+          <img id="logo" alt="Billy Kong Magic Logo" class="hidden relative z-20 w-1/2 max-w-[100px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+        </div>
       </div>
     </div>
   </section>
@@ -611,10 +613,10 @@
       <div class="lg:col-span-5">
         <h2 class="text-xs tracking-[0.3em] text-zinc-500 uppercase mb-4 font-serif">Artist Profile 藝術家簡介</h2>
         <h3 class="text-3xl font-serif text-white mb-6">Illusionist · Creative Producer · Stage Director</h3>
-        <p class="text-zinc-400 mb-4 leading-relaxed font-serif">
+        <p class="text-zinc-400 mb-4 leading-relaxed">
           Handpicked by world-renowned illusionist Franz Harary as a core member of his Asia touring team, Billy Kong brings two decades of international stage experience to every performance — and more than 3,000 shows of proven, repeatable excellence.
         </p>
-        <p class="text-zinc-400 mb-6 leading-relaxed font-serif">
+        <p class="text-zinc-400 mb-6 leading-relaxed">
           受世界幻術大師 Franz Harary 親選為亞洲核心成員，江尚峰擁有逾二十年國際舞台演出資歷，足跡橫跨香港、深圳、海南，演出場次超過 3,000 場——是澳門少數同時擁有國際巡演團隊與大型劇場製作雙重資歷的全能藝術家。
         </p>
         <p class="text-zinc-300 italic font-serif border-l-2 border-zinc-700 pl-4">
@@ -626,31 +628,31 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 sm:gap-8 mb-12 sm:mb-16 border-b border-zinc-900 pb-12 sm:pb-16">
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">3,000+</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">累積演出場次<br/>Total performances</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">累積演出場次<br/>Total performances</div>
           </div>
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">240+</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">國際巡演場次<br/>Int'l tour shows</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">國際巡演場次<br/>Int'l tour shows</div>
           </div>
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">20+</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">年專業資歷<br/>Years experience</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">年專業資歷<br/>Years experience</div>
           </div>
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">5★</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">五星級酒店駐場<br/>Hotel residencies</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">五星級酒店駐場<br/>Hotel residencies</div>
           </div>
         </div>
 
         <div>
           <h4 class="text-xs tracking-widest text-zinc-500 uppercase mb-6 font-serif">Credentials 專業資格徽章</h4>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <li class="flex items-center gap-3 text-sm text-white font-medium font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> FISM Member · 國際魔術聯盟</li>
-            <li class="flex items-center gap-3 text-sm text-white font-medium font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Franz Harary Asia Team · 亞洲核心成員</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Fukai Magic School, Japan</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> 澳門魔術之都協會 常任理事</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="award" class="w-4 h-4 text-gold"></i> Macau Int'l Magic Festival · 近距離組亞軍</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="award" class="w-4 h-4 text-gold"></i> 十月初五街節民間高手比賽 2025 冠軍</li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> FISM Member · 國際魔術聯盟</li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Franz Harary Asia Team · 亞洲核心成員</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Fukai Magic School, Japan</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> 澳門魔術之都協會 常任理事</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="award" class="w-4 h-4 text-gold"></i> Macau Int'l Magic Festival · 近距離組亞軍</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="award" class="w-4 h-4 text-gold"></i> 十月初五街節民間高手比賽 2025 冠軍</li>
           </ul>
         </div>
       </div>
@@ -662,8 +664,8 @@
         <div class="bg-zinc-900/30 p-8 border border-zinc-800/50 glow-hover relative">
           <div class="text-2xl font-serif text-zinc-600 mb-4">01</div>
           <h4 class="text-lg text-white mb-1 font-serif">International Illusion Production<br/><span class="text-sm text-zinc-400">國際級幻術製作經驗</span></h4>
-          <p class="text-xs text-zinc-600 uppercase tracking-wider mb-4 font-serif">稀缺資歷，等級不同的製作水準</p>
-          <p class="text-base text-zinc-500 leading-relaxed font-serif">
+          <p class="text-xs text-zinc-500 uppercase tracking-wider mb-4">稀缺資歷，等級不同的製作水準</p>
+          <p class="text-base text-zinc-400 leading-relaxed">
             One of the few Macau artists with experience across Franz Harary's international team, Korean JSM Studio productions, and large-scale theatre illusion design.<br/><br/>
             澳門少數同時參與 Franz Harary 國際巡演團隊、韓國 JSM Studio 及大型劇場幻術製作的藝術家。
           </p>
@@ -671,8 +673,8 @@
         <div class="bg-zinc-900/30 p-8 border border-zinc-800/50 glow-hover relative">
           <div class="text-2xl font-serif text-zinc-600 mb-4">02</div>
           <h4 class="text-lg text-white mb-1 font-serif">Close-up & Stage, Both Mastered<br/><span class="text-sm text-zinc-400">近景與舞台雙棲魔術師</span></h4>
-          <p class="text-xs text-zinc-600 uppercase tracking-wider mb-4 font-serif">一人包辦，從晚宴到萬人舞台</p>
-          <p class="text-base text-zinc-500 leading-relaxed font-serif">
+          <p class="text-xs text-zinc-500 uppercase tracking-wider mb-4">一人包辦，從晚宴到萬人舞台</p>
+          <p class="text-base text-zinc-400 leading-relaxed">
             From magic performed inches from a guest's eyes to large-scale theatre illusions for thousands — equally at home in both worlds.<br/><br/>
             從觀眾眼前數厘米的近距離魔術，到萬人級舞台幻術，均具備豐富實戰經驗。
           </p>
@@ -680,13 +682,31 @@
         <div class="bg-zinc-900/30 p-8 border border-zinc-800/50 glow-hover relative">
           <div class="text-2xl font-serif text-zinc-600 mb-4">03</div>
           <h4 class="text-lg text-white mb-1 font-serif">Immersive Audience Experience<br/><span class="text-sm text-zinc-400">沉浸式互動體驗設計</span></h4>
-          <p class="text-xs text-zinc-600 uppercase tracking-wider mb-4 font-serif">讓每位客人都是主角，記憶無法複製</p>
-          <p class="text-base text-zinc-500 leading-relaxed font-serif">
+          <p class="text-xs text-zinc-500 uppercase tracking-wider mb-4">讓每位客人都是主角，記憶無法複製</p>
+          <p class="text-base text-zinc-400 leading-relaxed">
             Skilled at weaving guests directly into the performance, creating a personal, unrepeatable memory for every participant.<br/><br/>
             擅長將觀眾融入表演之中，創造屬於每位參與者的獨特回憶。
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 🌟 呼吸區：全寬金句，打斷卡片節奏 -->
+  <section class="relative py-20 sm:py-28 lg:py-36 border-t border-zinc-900 overflow-hidden">
+    <div class="blueprint-grid opacity-60"></div>
+    <div class="ambient-glow-top"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="h-px w-16 bg-gold mx-auto mb-10"></div>
+      <p class="text-2xl sm:text-3xl lg:text-4xl font-serif italic text-white leading-snug">
+        From a single card at arm's length<br class="hidden sm:block" />
+        to an illusion witnessed by thousands —<br class="hidden sm:block" />
+        every scale, one standard.
+      </p>
+      <p class="mt-6 text-sm sm:text-base text-zinc-500 tracking-widest uppercase">
+        從一張撲克到萬人劇場，同一個標準
+      </p>
+      <div class="h-px w-16 bg-gold mx-auto mt-10"></div>
     </div>
   </section>
 
@@ -708,8 +728,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">IMAGINE NATION 幻</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Hong Kong & Shenzhen 2024–2025 · 240+ shows</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">International Tour Star Illusionist & Stage Technical Director. Starring with Franz Harary, Danny Cole & Rocco Silano.</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Hong Kong & Shenzhen 2024–2025 · 240+ shows</p>
+                <p class="text-base text-zinc-400 leading-relaxed">International Tour Star Illusionist & Stage Technical Director. Starring with Franz Harary, Danny Cole & Rocco Silano.</p>
               </div>
             </div>
 
@@ -719,8 +739,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">秀都魔幻</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Sanya, Hainan</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">China's Only Large-Scale Resident Magic Show. Star Illusionist & Stage Manager. Produced by Franz Harary.</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Sanya, Hainan</p>
+                <p class="text-base text-zinc-400 leading-relaxed">China's Only Large-Scale Resident Magic Show. Star Illusionist & Stage Manager. Produced by Franz Harary.</p>
               </div>
             </div>
 
@@ -730,8 +750,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">廣州長隆歡樂世界 《魔法奇幻之旅》</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Guangzhou</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">Lead Illusionist. Directed by Korean master illusionist JSM (全成敏).</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Guangzhou</p>
+                <p class="text-base text-zinc-400 leading-relaxed">Lead Illusionist. Directed by Korean master illusionist JSM (全成敏).</p>
               </div>
             </div>
 
@@ -741,8 +761,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">Hong Kong Arts Festival @ Tai Kwun</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">香港藝術節大館</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">Performer · 《藝術外賣 3.0：待定》</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">香港藝術節大館</p>
+                <p class="text-base text-zinc-400 leading-relaxed">Performer · 《藝術外賣 3.0：待定》</p>
               </div>
             </div>
           </div>
@@ -756,33 +776,33 @@
           </div>
           <ul class="space-y-4">
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">澳門拉丁城區幻彩大巡遊</span>
+              <span class="text-zinc-300 text-sm sm:text-base">澳門拉丁城區幻彩大巡遊</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">澳門農曆新年花車巡遊匯演</span>
+              <span class="text-zinc-300 text-sm sm:text-base">澳門農曆新年花車巡遊匯演</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
               <div>
-                <span class="text-zinc-300 block font-serif text-sm sm:text-base">澳門城市藝穗節《全民魔法影院》</span>
-                <span class="text-xs text-zinc-500 mt-1 block font-serif">技術總監</span>
+                <span class="text-zinc-300 block text-sm sm:text-base">澳門城市藝穗節《全民魔法影院》</span>
+                <span class="text-xs text-zinc-500 mt-1 block">技術總監</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
               <div>
-                <span class="text-zinc-300 block font-serif text-sm sm:text-base">澳門藝術節《藝術外賣》</span>
-                <span class="text-xs text-zinc-500 mt-1 block font-serif">表演者</span>
+                <span class="text-zinc-300 block text-sm sm:text-base">澳門藝術節《藝術外賣》</span>
+                <span class="text-xs text-zinc-500 mt-1 block">表演者</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">議事亭前地《週末文藝表演》</span>
+              <span class="text-zinc-300 text-sm sm:text-base">議事亭前地《週末文藝表演》</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">澳門塔石廣場《聖誕市集》</span>
+              <span class="text-zinc-300 text-sm sm:text-base">澳門塔石廣場《聖誕市集》</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
           </ul>
@@ -808,8 +828,8 @@
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500 uppercase">S</div>
             <div>
-              <span class="text-sm text-zinc-300 font-serif block">STDM 澳門旅遊娛樂股份有限公司</span>
-              <span class="text-xs text-zinc-600 font-serif">企業活動主辦方</span>
+              <span class="text-sm text-zinc-300 block">STDM 澳門旅遊娛樂股份有限公司</span>
+              <span class="text-xs text-zinc-500">企業活動主辦方</span>
             </div>
           </div>
         </div>
@@ -823,8 +843,8 @@
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500 uppercase">H</div>
             <div>
-              <span class="text-sm text-zinc-300 font-serif block">Hermès</span>
-              <span class="text-xs text-zinc-600 font-serif">VIP 客戶體驗活動嘉賓</span>
+              <span class="text-sm text-zinc-300 block">Hermès</span>
+              <span class="text-xs text-zinc-500">VIP 客戶體驗活動嘉賓</span>
             </div>
           </div>
         </div>
@@ -838,8 +858,8 @@
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500 uppercase">L</div>
             <div>
-              <span class="text-sm text-zinc-300 font-serif block">Louis</span>
-              <span class="text-xs text-zinc-600 font-serif">私人晚宴賓客</span>
+              <span class="text-sm text-zinc-300 block">Louis</span>
+              <span class="text-xs text-zinc-500">私人晚宴賓客</span>
             </div>
           </div>
         </div>
@@ -911,7 +931,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Hermès</span>
-            <span class="text-sm text-zinc-500 font-serif">VIP Client Experience</span>
+            <span class="text-sm text-zinc-400">VIP Client Experience</span>
           </div>
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
@@ -920,7 +940,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Macau International Airport</span>
-            <span class="text-sm text-zinc-500 font-serif">國際航線推廣主題魔術表演</span>
+            <span class="text-sm text-zinc-400">國際航線推廣主題魔術表演</span>
           </div>
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
@@ -929,7 +949,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">澳門國際環保合作發展論壇 2026</span>
-            <span class="text-sm text-zinc-500 font-serif">環保主題魔術表演</span>
+            <span class="text-sm text-zinc-400">環保主題魔術表演</span>
           </div>
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
@@ -938,7 +958,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">澳門田耕閣手信</span>
-            <span class="text-sm text-zinc-500 font-serif">幸運神朱古力新品發布</span>
+            <span class="text-sm text-zinc-400">幸運神朱古力新品發布</span>
           </div>
         </div>
       </div>
@@ -949,19 +969,19 @@
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Galaxy Macau 銀河酒店</span>
-          <span class="text-sm text-zinc-500 font-serif">Oasis Restaurant & Wave Pool · 綠洲餐廳及天浪淘園</span>
+          <span class="text-sm text-zinc-400">Oasis Restaurant & Wave Pool · 綠洲餐廳及天浪淘園</span>
         </li>
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Altira Macau 新濠鋒</span>
-          <span class="text-sm text-zinc-500 font-serif">Aurora Restaurant · 連續四年 · 4 Consecutive Years</span>
+          <span class="text-sm text-zinc-400">Aurora Restaurant · 連續四年 · 4 Consecutive Years</span>
         </li>
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Grand Lisboa Palace 上葡京</span>
-          <span class="text-sm text-zinc-500 font-serif">廣場表演及自助餐廳</span>
+          <span class="text-sm text-zinc-400">廣場表演及自助餐廳</span>
         </li>
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Studio City 新濠影匯</span>
-          <span class="text-sm text-zinc-500 font-serif">House of Magic · Asst. Stage Manager · 助理舞台經理</span>
+          <span class="text-sm text-zinc-400">House of Magic · Asst. Stage Manager · 助理舞台經理</span>
         </li>
       </ul>
     </div>
@@ -981,12 +1001,12 @@
               <div class="w-14 h-14 rounded-full flex items-center justify-center" style="border:1px solid rgba(212,175,106,0.4);">
                 <div class="play-triangle"></div>
               </div>
-              <p class="text-xs tracking-widest uppercase text-zinc-600 font-serif text-center">影片即將上線<br/>Coming Soon</p>
+              <p class="text-xs tracking-widest uppercase text-zinc-500 text-center">影片即將上線<br/>Coming Soon</p>
             </div>
           </div>
           <div class="p-5">
             <h4 class="text-base text-white font-serif">2026 STDM Annual staff Party</h4>
-            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1 font-serif">Highlights Reel</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Highlights Reel</p>
           </div>
         </div>
 
@@ -997,12 +1017,12 @@
               <div class="w-14 h-14 rounded-full flex items-center justify-center" style="border:1px solid rgba(212,175,106,0.4);">
                 <div class="play-triangle"></div>
               </div>
-              <p class="text-xs tracking-widest uppercase text-zinc-600 font-serif text-center">影片即將上線<br/>Coming Soon</p>
+              <p class="text-xs tracking-widest uppercase text-zinc-500 text-center">影片即將上線<br/>Coming Soon</p>
             </div>
           </div>
           <div class="p-5">
             <h4 class="text-base text-white font-serif">VIP & Close-up Magic</h4>
-            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1 font-serif">Private Event Footage</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Private Event Footage</p>
           </div>
         </div>
 
@@ -1013,12 +1033,12 @@
               <div class="w-14 h-14 rounded-full flex items-center justify-center" style="border:1px solid rgba(212,175,106,0.4);">
                 <div class="play-triangle"></div>
               </div>
-              <p class="text-xs tracking-widest uppercase text-zinc-600 font-serif text-center">影片即將上線<br/>Coming Soon</p>
+              <p class="text-xs tracking-widest uppercase text-zinc-500 text-center">影片即將上線<br/>Coming Soon</p>
             </div>
           </div>
           <div class="p-5">
             <h4 class="text-base text-white font-serif">2023 廣州長隆歡樂世界駐場魔術表演</h4>
-            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1 font-serif">The finale performance</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">The finale performance</p>
           </div>
         </div>
 
@@ -1039,10 +1059,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Close-up & VIP Magic<br/><span class="text-lg text-zinc-400">近距離及 VIP 魔術</span></h4>
-            <p class="text-zinc-500 mb-4 font-serif">Tailored for private dinners, VIP receptions and brand events. Intimate, unforgettable, elegant.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">私人晚宴 · VIP 接待 · 品牌活動 · 酒會</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">適合 10–80 人 · 建議提前 2–4 週洽談</p>
-            <p class="text-sm italic text-zinc-400 font-serif">每一桌，都是頭等席。</p>
+            <p class="text-zinc-400 mb-4">Tailored for private dinners, VIP receptions and brand events. Intimate, unforgettable, elegant.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">私人晚宴 · VIP 接待 · 品牌活動 · 酒會</p>
+            <p class="text-xs text-gold/90 uppercase tracking-wider mb-3">適合 10–80 人 · 建議提前 2–4 週洽談</p>
+            <p class="text-sm italic font-serif text-zinc-300">每一桌，都是頭等席。</p>
           </div>
         </div>
         
@@ -1052,10 +1072,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Stage Illusion Show<br/><span class="text-lg text-zinc-400">互動舞台魔術演出</span></h4>
-            <p class="text-zinc-500 mb-4 font-serif">Grand-scale illusions for galas, award ceremonies and corporate showcases.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">企業年會 · 頒獎禮 · 節慶晚宴 · 商場活動</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">適合 100–5,000+ 人 · 建議提前 6–8 週洽談</p>
-            <p class="text-sm italic text-zinc-400 font-serif">萬人舞台，一瞬驚艷全場。</p>
+            <p class="text-zinc-400 mb-4">Grand-scale illusions for galas, award ceremonies and corporate showcases.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">企業年會 · 頒獎禮 · 節慶晚宴 · 商場活動</p>
+            <p class="text-xs text-gold/90 uppercase tracking-wider mb-3">適合 100–5,000+ 人 · 建議提前 6–8 週洽談</p>
+            <p class="text-sm italic font-serif text-zinc-300">萬人舞台，一瞬驚艷全場。</p>
           </div>
         </div>
 
@@ -1065,10 +1085,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Brand Experience Design<br/><span class="text-lg text-zinc-400">品牌訂製魔術體驗</span></h4>
-            <p class="text-zinc-500 mb-4 font-serif">Custom illusion concepts built around your brand story, product launch or campaign.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">品牌故事融入訂製幻術 · 產品發布 · 推廣活動</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">適合品牌方客製合作 · 建議提前 8–12 週洽談</p>
-            <p class="text-sm italic text-zinc-400 font-serif">把品牌故事，變成一場奇蹟。</p>
+            <p class="text-zinc-400 mb-4">Custom illusion concepts built around your brand story, product launch or campaign.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">品牌故事融入訂製幻術 · 產品發布 · 推廣活動</p>
+            <p class="text-xs text-gold/90 uppercase tracking-wider mb-3">適合品牌方客製合作 · 建議提前 8–12 週洽談</p>
+            <p class="text-sm italic font-serif text-zinc-300">把品牌故事，變成一場奇蹟。</p>
           </div>
         </div>
 
@@ -1078,10 +1098,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Creative Consultation<br/><span class="text-lg text-zinc-400">全程製作顧問</span></h4>
-            <p class="text-zinc-500 mb-4 font-serif">From concept to stage — production design, illusion planning and technical direction.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">概念至舞台 · 創意策劃 · 技術統籌 · 全程跟進</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">適合大型製作團隊 · 依專案規模另行報價</p>
-            <p class="text-sm italic text-zinc-400 font-serif">由構思到落幕，全程為你把關。</p>
+            <p class="text-zinc-400 mb-4">From concept to stage — production design, illusion planning and technical direction.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">概念至舞台 · 創意策劃 · 技術統籌 · 全程跟進</p>
+            <p class="text-xs text-gold/90 uppercase tracking-wider mb-3">適合大型製作團隊 · 依專案規模另行報價</p>
+            <p class="text-sm italic font-serif text-zinc-300">由構思到落幕，全程為你把關。</p>
           </div>
         </div>
 
@@ -1089,8 +1109,8 @@
 
       <div class="mt-12 sm:mt-16 lg:mt-24 max-w-2xl mx-auto text-center bg-zinc-900/50 p-6 sm:p-8 md:p-12 border border-zinc-800">
         <h4 class="text-2xl font-serif mb-4 text-white">Next Step 下一步</h4>
-        <p class="text-zinc-400 mb-4 font-serif">Every collaboration begins with a conversation. Tell us about your event, and Billy will personally design a proposal tailored to your vision.</p>
-        <p class="text-zinc-500 text-sm font-serif mb-8">每一次合作都從一個對話開始。告訴我們你的活動，Billy 將親自為你度身設計方案。</p>
+        <p class="text-zinc-300 mb-4">Every collaboration begins with a conversation. Tell us about your event, and Billy will personally design a proposal tailored to your vision.</p>
+        <p class="text-zinc-400 text-sm mb-8">每一次合作都從一個對話開始。告訴我們你的活動，Billy 將親自為你度身設計方案。</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="https://wa.me/85366551654" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-gold text-gold-dark px-8 py-3 font-serif font-bold tracking-wider uppercase gold-cta-glow">
             <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
@@ -1108,7 +1128,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-16">
       <h2 class="text-xs tracking-[0.3em] text-zinc-500 uppercase mb-4 text-center font-serif">Behind The Curtain</h2>
       <h3 class="text-3xl sm:text-4xl font-serif text-center text-white mb-3">演出花絮</h3>
-      <p class="text-center text-zinc-600 text-sm font-serif mb-10 sm:mb-14">點擊任一張相片放大瀏覽</p>
+      <p class="text-center text-zinc-500 text-sm mb-10 sm:mb-14">點擊任一張相片放大瀏覽</p>
       <!-- 縮圖網格：JS 動態填入，手機 2 列、平板 3 列、桌面 4 列 -->
       <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3"></div>
     </div>
@@ -1146,30 +1166,30 @@
       <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-5 mb-16 max-w-2xl mx-auto">
         <a href="tel:+85366551654" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="phone" class="w-4 h-4"></i>
-          <span class="font-serif">+853 6655 1654</span>
+          <span>+853 6655 1654</span>
         </a>
         <a href="https://wa.me/85366551654" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span class="font-serif">WhatsApp</span>
+          <span>WhatsApp</span>
         </a>
         <a href="mailto:BillyKongMagic@gmail.com" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="mail" class="w-4 h-4"></i>
-          <span class="font-serif">BillyKongMagic@gmail.com</span>
+          <span>BillyKongMagic@gmail.com</span>
         </a>
         <a href="https://BillyKongMagic.com" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="globe" class="w-4 h-4"></i>
-          <span class="font-serif">BillyKongMagic.com</span>
+          <span>BillyKongMagic.com</span>
         </a>
         <a href="https://instagram.com/Billykongmagic" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="instagram" class="w-4 h-4"></i>
-          <span class="font-serif">@Billykongmagic</span>
+          <span>@Billykongmagic</span>
         </a>
       </div>
 
       <div class="border-t border-zinc-900 pt-16">
         <p class="text-xl italic font-serif text-white mb-4">"Beyond Magic. Beyond Imagination."</p>
         <p class="text-sm text-zinc-500 tracking-widest mb-2 font-serif">科技 × 戲劇 × 奇蹟</p>
-        <p class="text-sm text-zinc-600 font-serif">讓每一次演出，成為無法複製的記憶。</p>
+        <p class="text-sm text-zinc-500">讓每一次演出，成為無法複製的記憶。</p>
       </div>
     </div>
   </footer>
