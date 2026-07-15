@@ -585,26 +585,24 @@
       </div>
     </div>
 
-    <!-- 首頁三張預覽圖與 Logo -->
-    <div class="h-auto lg:h-[calc(100vh)] bg-zinc-900 grid grid-cols-2 grid-rows-[1.6fr_1fr] gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
-      <div class="relative overflow-hidden group bg-zinc-800 row-span-2 aspect-square lg:aspect-auto">
+    <!-- 首頁三張預覽圖與 Logo：手機維持等分 2×2，桌面（lg）才套用不對稱跨列效果 -->
+    <div class="h-auto lg:h-[calc(100vh)] bg-zinc-900 grid grid-cols-2 lg:grid-rows-[1.6fr_1fr] gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
+      <div class="relative overflow-hidden group bg-zinc-800 lg:row-span-2 aspect-square lg:aspect-auto">
         <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
         <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="grid grid-cols-2 gap-1 lg:gap-2">
-        <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-          <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
+        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+      </div>
+      <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
+        <div id="logoFallback" class="text-center p-3 relative z-10">
+          <i data-lucide="sparkles" class="w-6 h-6 mx-auto mb-2 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
+          <p class="text-[10px] tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
         </div>
-        <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
-          <div id="logoFallback" class="text-center p-3 relative z-10">
-            <i data-lucide="sparkles" class="w-6 h-6 mx-auto mb-2 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
-            <p class="text-[10px] tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
-          </div>
-          <!-- Logo 使用相對定位避免擠壓變形 -->
-          <img id="logo" alt="Billy Kong Magic Logo" class="hidden relative z-20 w-1/2 max-w-[100px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-        </div>
+        <!-- Logo 使用相對定位避免擠壓變形 -->
+        <img id="logo" alt="Billy Kong Magic Logo" class="hidden relative z-20 w-1/2 max-w-[100px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
     </div>
   </section>
@@ -694,20 +692,18 @@
   </section>
 
   <!-- 🌟 呼吸區：全寬金句，打斷卡片節奏 -->
-  <section class="relative py-20 sm:py-28 lg:py-36 border-t border-zinc-900 overflow-hidden">
+  <section class="relative py-16 sm:py-28 lg:py-36 border-t border-zinc-900 overflow-hidden">
     <div class="blueprint-grid opacity-60"></div>
     <div class="ambient-glow-top"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <div class="h-px w-16 bg-gold mx-auto mb-10"></div>
-      <p class="text-2xl sm:text-3xl lg:text-4xl font-serif italic text-white leading-snug">
-        From a single card at arm's length<br class="hidden sm:block" />
-        to an illusion witnessed by thousands —<br class="hidden sm:block" />
-        every scale, one standard.
+    <div class="relative z-10 max-w-3xl lg:max-w-4xl mx-auto px-8 sm:px-6 text-center">
+      <div class="h-px w-10 sm:w-16 bg-gold mx-auto mb-8 sm:mb-10"></div>
+      <p class="text-xl sm:text-3xl lg:text-4xl font-serif italic text-white leading-relaxed sm:leading-snug">
+        From a single card at arm's length to an illusion witnessed by thousands — every scale, one standard.
       </p>
-      <p class="mt-6 text-sm sm:text-base text-zinc-500 tracking-widest uppercase">
+      <p class="mt-5 sm:mt-6 text-xs sm:text-base text-zinc-500 tracking-widest uppercase">
         從一張撲克到萬人劇場，同一個標準
       </p>
-      <div class="h-px w-16 bg-gold mx-auto mt-10"></div>
+      <div class="h-px w-10 sm:w-16 bg-gold mx-auto mt-8 sm:mt-10"></div>
     </div>
   </section>
 
