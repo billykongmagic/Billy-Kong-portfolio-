@@ -10,6 +10,7 @@
   <meta name="keywords" content="Billy Kong, Macau magician, illusionist Macau, Franz Harary, stage magic, VIP magic, brand event magic, close-up magic Macau, stage illusion show, luxury event entertainment Macau">
   <meta name="author" content="Billy Kong">
   <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="swGx1BYdssErz1pbeR2jsYgmnHGrefChIDedp7_vA9k" />
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="canonical" href="https://billykongmagic.github.io/BillyKong-portfolio/index-en.html">
@@ -66,14 +67,12 @@
   <meta name="twitter:description" content="Asia core team member handpicked by Franz Harary, 20+ years of international stage experience, 3,000+ performances, resident magician at five-star hotels in Macau.">
   <meta name="twitter:image" content="https://billykongmagic.github.io/BillyKong-portfolio/hero.jpg">
 
-  <!-- 引入 Tailwind CSS（本地編譯版，取代開發用 CDN） -->
+  <!-- Tailwind CSS -->
   <link rel="stylesheet" href="tailwind.css">
-  <!-- 引入 Lucide Icons 圖示庫 -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* 🌟 字體已改用 <link> 標籤在 head 提早載入，見上方 preconnect 區塊 */
-
     .font-serif {
       font-family: "Playfair Display", "Noto Serif TC", serif !important;
     }
@@ -87,6 +86,7 @@
     .border-gold { border-color: var(--gold) !important; }
     .bg-gold { background-color: var(--gold) !important; }
     .text-gold-dark { color: var(--gold-dark) !important; }
+    .text-gold-soft { color: rgba(212, 175, 106, 0.9) !important; }
 
     /* 🌟 Blueprint Atmosphere Layer */
     .blueprint-grid {
@@ -149,7 +149,7 @@
       pointer-events: none;
     }
 
-    /* 🌟 Back to Top 按鈕 */
+    /* 🌟 Back to Top */
     #back-to-top {
       position: fixed;
       bottom: 24px;
@@ -180,7 +180,7 @@
       box-shadow: 0 0 0 1px rgba(212, 175, 106, 0.6), 0 0 28px rgba(212, 175, 106, 0.3);
     }
 
-    /* 🌟 常駐 WhatsApp 浮動按鈕 */
+    /* 🌟 WhatsApp Float */
     #whatsapp-float {
       position: fixed;
       bottom: 80px;
@@ -240,7 +240,7 @@
 
   <script>
     // ==========================================
-    // 🌟 照片與設定
+    // 🌟 Photos & Settings
     // ==========================================
     const MY_PHOTOS = {
       heroBackground: "hero.jpg",
@@ -262,23 +262,30 @@
       brand4: "brand4.jpg",
     };
 
-    // ==========================================
-    // Brand Partnership Logo Wall
-    // ==========================================
     const MY_LOGOS = [
-      { name: "Hermès",                url: "logo/hermes.png" },
-      { name: "澳門國際機場",            url: "logo/airport.png" },
-      { name: "澳門國際環保合作發展論壇", url: "logo/miecf.png" },
-      { name: "verifone",          url: "logo/verifone.png" },
-      { name: "Franz harry",                       url: "logo/Franz.png" },
-      { name: "Google",                       url: "logo/google.png" },
-      { name: "Altira",                       url: "logo/altira.png" },
+      { name: "Hermès",                      url: "logo/hermes.png" },
+      { name: "Macau International Airport", url: "logo/airport.png" },
+      { name: "MIECF",                       url: "logo/miecf.png" },
+      { name: "verifone",                    url: "logo/verifone.png" },
+      { name: "Franz Harary",                url: "logo/Franz.png" },
+      { name: "Google",                      url: "logo/google.png" },
+      { name: "Altira",                      url: "logo/altira.png" },
       { name: "Paiza",                       url: "logo/paiza.png" },
-      { name: "長隆",                       url: "logo/長隆.png" },
-      { name: "stdm",                       url: "logo/stdm.png" },
-      { name: "glp",                       url: "logo/glp.png" },
-      { name: "geg",                       url: "logo/geg.png" },
+      { name: "Chimelong",                   url: "logo/長隆.png" },
+      { name: "STDM",                        url: "logo/stdm.png" },
+      { name: "GLP",                         url: "logo/glp.png" },
+      { name: "GEG",                         url: "logo/geg.png" },
     ];
+
+    // ==========================================
+    // 🌟 Photo Focal Points
+    // Prevents heads from being cropped in the square grid
+    // ==========================================
+    const HERO_FOCAL_POINTS = {
+      heroGrid1: "top",
+      heroGrid2: "center",
+      heroGrid3: "top",
+    };
 
     const MY_VIDEOS = {
       video1: "SDjyESXXXKg",
@@ -286,11 +293,12 @@
       video3: "IgArmNQ8FIo",
       video4: "",
     };
+
     // ==========================================
-    // Gallery photos (up to 24); leave url blank to skip
+    // Gallery photos
     // ==========================================
     const MY_GALLERY = [
-     { url: "photo/1.jpg", caption: "" },
+      { url: "photo/1.jpg", caption: "" },
       { url: "photo/2.jpg", caption: "" },
       { url: "photo/3.jpg", caption: "" },
       { url: "photo/4.jpg", caption: "" },
@@ -331,6 +339,11 @@
             }
             img.classList.remove('hidden');
             img.parentElement.style.display = 'block'; 
+            
+            if (HERO_FOCAL_POINTS[id]) {
+              img.style.objectPosition = HERO_FOCAL_POINTS[id];
+            }
+
             if (id === 'logo') {
               const fallback = document.getElementById('logoFallback');
               if (fallback) fallback.classList.add('hidden');
@@ -403,34 +416,42 @@
       const lbCaption = document.getElementById('lbCaption');
       const lbCounter = document.getElementById('lbCounter');
       const activePhotos = MY_GALLERY.filter(p => p.url && p.url.trim() !== '');
+      
       if (gallerySection && activePhotos.length > 0) {
         gallerySection.classList.remove('hidden');
         activePhotos.forEach((photo, i) => {
-          // SEO/GEO optimization: auto-generated descriptive alt, no manual entry per photo
           const autoAlt = `Billy Kong Macau Illusionist International Touring Magic Performance Highlights ${i + 1}` + (photo.caption ? ` - ${photo.caption}` : '');
           const cell = document.createElement('div');
           cell.className = 'relative overflow-hidden bg-zinc-900 aspect-square cursor-pointer group';
-          cell.innerHTML = `<img src="${photo.url}" alt="${autoAlt}" loading="lazy" decoding="async" class="reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 transition-all duration-1000 ease-out group-hover:scale-105">${photo.caption ? `<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300"><p class="text-white text-xs font-serif tracking-wider">${photo.caption}</p></div>` : ''}`;
+          cell.innerHTML = `
+            <img src="${photo.url}" alt="${autoAlt}" loading="lazy" decoding="async" class="reveal-target reveal-opacity-60 w-full h-full object-cover grayscale opacity-60 transition-all duration-1000 ease-out group-hover:scale-105">
+            ${photo.caption ? `<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300"><p class="text-white text-xs font-serif tracking-wider">${photo.caption}</p></div>` : ''}
+          `;
           cell.addEventListener('click', () => openLightbox(i));
           galleryGrid.appendChild(cell);
         });
       }
+
       let lbCurrent = 0;
       function openLightbox(i) {
         lbCurrent = i;
         lbImg.src = activePhotos[i].url;
         lbImg.alt = `Billy Kong Macau Illusionist International Touring Magic Performance Highlights ${i + 1}` + (activePhotos[i].caption ? ` - ${activePhotos[i].caption}` : '');
         lbCaption.textContent = activePhotos[i].caption || '';
-        lbCounter.textContent = (i+1) + ' / ' + activePhotos.length;
-        lb.classList.remove('hidden'); lb.classList.add('flex');
+        lbCounter.textContent = (i + 1) + ' / ' + activePhotos.length;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
         document.body.style.overflow = 'hidden';
       }
       function closeLightbox() {
-        lb.classList.add('hidden'); lb.classList.remove('flex');
-        document.body.style.overflow = ''; lbImg.src = '';
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+        document.body.style.overflow = '';
+        lbImg.src = '';
       }
       function lbPrev() { openLightbox((lbCurrent - 1 + activePhotos.length) % activePhotos.length); }
       function lbNext() { openLightbox((lbCurrent + 1) % activePhotos.length); }
+      
       if (lb) {
         document.getElementById('lbClose').addEventListener('click', closeLightbox);
         document.getElementById('lbPrev').addEventListener('click', lbPrev);
@@ -556,7 +577,6 @@
     <div class="ambient-glow-top"></div>
     <div class="flex flex-col lg:h-screen border-b lg:border-b-0 lg:border-r border-zinc-900 bg-zinc-950">
       <div class="h-[55vh] lg:flex-1 w-full relative bg-zinc-900">
-        <!-- 🌟 Absolute Inset-0 to Fix Safari Layout -->
         <img id="heroBackground" alt="Billy Kong, Macau International Illusionist, Stage Portrait" class="hidden absolute inset-0 w-full h-full object-cover object-top" />
       </div>
       <div class="w-full p-6 sm:p-8 lg:p-12 xl:p-16 relative z-10 shrink-0">
@@ -578,23 +598,23 @@
       </div>
     </div>
 
-    <!-- 🌟 Hero Grid with aspect-square and reveal scroll effect -->
-    <div class="h-auto lg:h-[calc(100vh)] bg-zinc-900 flex flex-wrap gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
-      <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
+    <!-- 🌟 Hero Grid with updated structure from Chinese version -->
+    <div class="grid grid-cols-2 gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px] h-auto lg:h-[calc(100vh)] bg-zinc-900">
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
         <img id="heroGrid1" alt="Billy Kong International Stage Magic Performance Highlights 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
         <img id="heroGrid2" alt="Billy Kong International Stage Magic Performance Highlights 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="relative overflow-hidden group bg-zinc-800 flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
         <img id="heroGrid3" alt="Billy Kong International Stage Magic Performance Highlights 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center flex-1 basis-[48%] aspect-square lg:aspect-auto lg:h-[48%]">
-        <div id="logoFallback" class="text-center p-4 sm:p-6 relative z-10">
-          <i data-lucide="sparkles" class="w-8 h-8 mx-auto mb-2 sm:mb-3 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
-          <p class="text-xs sm:text-sm tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
+      <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
+        <div id="logoFallback" class="text-center p-3 relative z-10">
+          <i data-lucide="sparkles" class="w-6 h-6 mx-auto mb-2 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
+          <p class="text-[10px] tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
         </div>
-        <img id="logo" alt="Billy Kong Magic Logo" class="hidden relative z-20 w-1/2 max-w-[140px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+        <img id="logo" alt="Billy Kong Magic Logo" class="hidden relative z-20 w-1/2 max-w-[100px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
     </div>
   </section>
@@ -604,10 +624,10 @@
       <div class="lg:col-span-5">
         <h2 class="text-xs tracking-[0.3em] text-zinc-500 uppercase mb-4 font-serif">Artist Profile</h2>
         <h3 class="text-3xl font-serif text-white mb-6">Illusionist · Creative Producer · Stage Director</h3>
-        <p class="text-zinc-400 mb-4 leading-relaxed font-serif">
+        <p class="text-zinc-400 mb-4 leading-relaxed">
           Handpicked by world-renowned illusionist Franz Harary as a core member of his Asia touring team, Billy Kong brings two decades of international stage experience to every performance — and more than 3,000 shows of proven, repeatable excellence.
         </p>
-        <p class="text-zinc-400 mb-6 leading-relaxed font-serif">
+        <p class="text-zinc-400 mb-6 leading-relaxed">
           His touring footprint spans Hong Kong, Shenzhen, and Hainan — Billy is one of the few Macau-based artists with both an international touring team background and large-scale theatre production credentials.
         </p>
         <p class="text-zinc-300 italic font-serif border-l-2 border-zinc-700 pl-4">
@@ -619,31 +639,31 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 sm:gap-8 mb-12 sm:mb-16 border-b border-zinc-900 pb-12 sm:pb-16">
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">3,000+</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">Total Performances</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">Total Performances</div>
           </div>
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">240+</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">Int'l Tour Shows</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">Int'l Tour Shows</div>
           </div>
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">20+</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">Years Experience</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">Years Experience</div>
           </div>
           <div>
             <div class="text-3xl sm:text-4xl font-serif text-gold mb-2">5★</div>
-            <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider font-serif">Hotel Residencies</div>
+            <div class="text-xs sm:text-sm text-zinc-400 uppercase tracking-wider">Hotel Residencies</div>
           </div>
         </div>
 
         <div>
           <h4 class="text-xs tracking-widest text-zinc-500 uppercase mb-6 font-serif">Credentials</h4>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <li class="flex items-center gap-3 text-sm text-white font-medium font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> FISM Member — International Federation of Magic Societies</li>
-            <li class="flex items-center gap-3 text-sm text-white font-medium font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Franz Harary Asia Team — Core Member</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Fukai Magic School, Japan</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Macau Magic Capital Association — Permanent Director</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="award" class="w-4 h-4 text-gold"></i> Macau Int'l Magic Festival — Close-up Runner-up</li>
-            <li class="flex items-center gap-3 text-sm text-zinc-300 font-serif"><i data-lucide="award" class="w-4 h-4 text-gold"></i> Rua do Cunha Street Festival Folk Talent Competition — 2025 Champion</li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> FISM Member — International Federation of Magic Societies</li>
+            <li class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Franz Harary Asia Team — Core Member</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Fukai Magic School, Japan</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="check-circle" class="w-4 h-4 text-gold"></i> Macau Magic Capital Association — Permanent Director</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="award" class="w-4 h-4 text-gold"></i> Macau Int'l Magic Festival — Close-up Runner-up</li>
+            <li class="flex items-center gap-3 text-sm text-zinc-300"><i data-lucide="award" class="w-4 h-4 text-gold"></i> Rua do Cunha Street Festival Folk Talent Competition — 2025 Champion</li>
           </ul>
         </div>
       </div>
@@ -655,28 +675,41 @@
         <div class="bg-zinc-900/30 p-8 border border-zinc-800/50 glow-hover relative">
           <div class="text-2xl font-serif text-zinc-600 mb-4">01</div>
           <h4 class="text-lg text-white mb-1 font-serif">International Illusion Production</h4>
-          <p class="text-xs text-zinc-600 uppercase tracking-wider mb-4 font-serif">Rare credentials, a different tier of production craft</p>
-          <p class="text-base text-zinc-500 leading-relaxed font-serif">
+          <p class="text-xs text-zinc-500 uppercase tracking-wider mb-4">Rare credentials, a different tier of production craft</p>
+          <p class="text-base text-zinc-400 leading-relaxed">
             One of the few Macau artists with experience across Franz Harary's international team, Korean JSM Studio productions, and large-scale theatre illusion design.
           </p>
         </div>
         <div class="bg-zinc-900/30 p-8 border border-zinc-800/50 glow-hover relative">
           <div class="text-2xl font-serif text-zinc-600 mb-4">02</div>
           <h4 class="text-lg text-white mb-1 font-serif">Close-up & Stage, Both Mastered</h4>
-          <p class="text-xs text-zinc-600 uppercase tracking-wider mb-4 font-serif">One artist, from intimate dinners to grand stages</p>
-          <p class="text-base text-zinc-500 leading-relaxed font-serif">
+          <p class="text-xs text-zinc-500 uppercase tracking-wider mb-4">One artist, from intimate dinners to grand stages</p>
+          <p class="text-base text-zinc-400 leading-relaxed">
             From magic performed inches from a guest's eyes to large-scale theatre illusions for thousands — equally at home in both worlds.
           </p>
         </div>
         <div class="bg-zinc-900/30 p-8 border border-zinc-800/50 glow-hover relative">
           <div class="text-2xl font-serif text-zinc-600 mb-4">03</div>
           <h4 class="text-lg text-white mb-1 font-serif">Immersive Audience Experience</h4>
-          <p class="text-xs text-zinc-600 uppercase tracking-wider mb-4 font-serif">Every guest becomes part of the story — a memory that can't be replicated</p>
-          <p class="text-base text-zinc-500 leading-relaxed font-serif">
+          <p class="text-xs text-zinc-500 uppercase tracking-wider mb-4">Every guest becomes part of the story</p>
+          <p class="text-base text-zinc-400 leading-relaxed">
             Skilled at weaving guests directly into the performance, creating a personal, unrepeatable memory for every participant.
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 🌟 Breathing Room Quote Section -->
+  <section class="relative py-16 sm:py-28 lg:py-36 border-t border-zinc-900 overflow-hidden">
+    <div class="blueprint-grid opacity-60"></div>
+    <div class="ambient-glow-top"></div>
+    <div class="relative z-10 max-w-3xl lg:max-w-4xl mx-auto px-8 sm:px-6 text-center">
+      <div class="h-px w-10 sm:w-16 bg-gold mx-auto mb-8 sm:mb-10"></div>
+      <p class="text-xl sm:text-3xl lg:text-4xl font-serif italic text-white leading-relaxed sm:leading-snug">
+        From a single card at arm's length to an illusion witnessed by thousands — every scale, one standard.
+      </p>
+      <div class="h-px w-10 sm:w-16 bg-gold mx-auto mt-8 sm:mt-10"></div>
     </div>
   </section>
 
@@ -698,8 +731,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">IMAGINE NATION 幻</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Hong Kong & Shenzhen 2024–2025 · 240+ shows</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">International Tour Star Illusionist & Stage Technical Director. Starring with Franz Harary, Danny Cole & Rocco Silano.</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Hong Kong & Shenzhen 2024–2025 · 240+ shows</p>
+                <p class="text-base text-zinc-400 leading-relaxed">International Tour Star Illusionist & Stage Technical Director. Starring with Franz Harary, Danny Cole & Rocco Silano.</p>
               </div>
             </div>
 
@@ -708,9 +741,9 @@
                 <img id="tour2" alt="Billy Kong Sanya Hainan Large-Scale Resident Magic Show" class="hidden absolute inset-0 reveal-target reveal-opacity-70 w-full h-full object-cover grayscale opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out" />
               </div>
               <div class="flex-1 flex flex-col justify-center">
-                <h4 class="text-xl text-white mb-2 font-serif">秀都魔幻 <span class="text-sm text-zinc-500">(Magic Capital Show)</span></h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Sanya, Hainan</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">China's Only Large-Scale Resident Magic Show. Star Illusionist & Stage Manager. Produced by Franz Harary.</p>
+                <h4 class="text-xl text-white mb-2 font-serif">秀都魔幻</h4>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Sanya, Hainan</p>
+                <p class="text-base text-zinc-400 leading-relaxed">China's Only Large-Scale Resident Magic Show. Star Illusionist & Stage Manager. Produced by Franz Harary.</p>
               </div>
             </div>
 
@@ -720,8 +753,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">Chimelong Paradise, Guangzhou — <span class="text-base">"Magical Fantasy Journey"</span></h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Guangzhou</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">Lead Illusionist. Directed by Korean master illusionist JSM (全成敏).</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Guangzhou</p>
+                <p class="text-base text-zinc-400 leading-relaxed">Lead Illusionist. Directed by Korean master illusionist JSM (全成敏).</p>
               </div>
             </div>
 
@@ -731,8 +764,8 @@
               </div>
               <div class="flex-1 flex flex-col justify-center">
                 <h4 class="text-xl text-white mb-2 font-serif">Hong Kong Arts Festival @ Tai Kwun</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-serif">Tai Kwun, Hong Kong Arts Festival</p>
-                <p class="text-base text-zinc-400 font-serif leading-relaxed">Performer · "Art Take-Away 3.0: TBD"</p>
+                <p class="text-xs text-zinc-400 uppercase tracking-wider mb-3">Tai Kwun, Hong Kong Arts Festival</p>
+                <p class="text-base text-zinc-400 leading-relaxed">Performer · "Art Take-Away 3.0: TBD"</p>
               </div>
             </div>
           </div>
@@ -746,33 +779,33 @@
           </div>
           <ul class="space-y-4">
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">Macau Latin City Parade</span>
+              <span class="text-zinc-300 text-sm sm:text-base">Macau Latin City Parade</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">Macau Chinese New Year Parade</span>
+              <span class="text-zinc-300 text-sm sm:text-base">Macau Chinese New Year Parade</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
               <div>
-                <span class="text-zinc-300 block font-serif text-sm sm:text-base">Macau City Fringe Festival — "Magic Cinema for All"</span>
-                <span class="text-xs text-zinc-500 mt-1 block font-serif">Technical Director</span>
+                <span class="text-zinc-300 block text-sm sm:text-base">Macau City Fringe Festival — "Magic Cinema for All"</span>
+                <span class="text-xs text-zinc-500 mt-1 block">Technical Director</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
               <div>
-                <span class="text-zinc-300 block font-serif text-sm sm:text-base">Macau Arts Festival — "Art Take-Away"</span>
-                <span class="text-xs text-zinc-500 mt-1 block font-serif">Performer</span>
+                <span class="text-zinc-300 block text-sm sm:text-base">Macau Arts Festival — "Art Take-Away"</span>
+                <span class="text-xs text-zinc-500 mt-1 block">Performer</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">Senado Square — "Weekend Arts Performance"</span>
+              <span class="text-zinc-300 text-sm sm:text-base">Senado Square — "Weekend Arts Performance"</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
             <li class="bg-zinc-900/40 px-4 sm:px-6 py-4 border border-zinc-800/50 flex justify-between items-center gap-3 group hover:bg-zinc-900 transition-colors">
-              <span class="text-zinc-300 font-serif text-sm sm:text-base">Tap Seac Square — "Christmas Market"</span>
+              <span class="text-zinc-300 text-sm sm:text-base">Tap Seac Square — "Christmas Market"</span>
               <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 flex-shrink-0"></i>
             </li>
           </ul>
@@ -798,8 +831,8 @@
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500 uppercase">S</div>
             <div>
-              <span class="text-sm text-zinc-300 font-serif block">STDM (Sociedade de Turismo e Diversões de Macau)</span>
-              <span class="text-xs text-zinc-600 font-serif">Corporate Event Organizer</span>
+              <span class="text-sm text-zinc-300 block">STDM (Sociedade de Turismo e Diversões de Macau)</span>
+              <span class="text-xs text-zinc-500">Corporate Event Organizer</span>
             </div>
           </div>
         </div>
@@ -813,8 +846,8 @@
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500 uppercase">H</div>
             <div>
-              <span class="text-sm text-zinc-300 font-serif block">Hermès</span>
-              <span class="text-xs text-zinc-600 font-serif">VIP Client Experience Event Guest</span>
+              <span class="text-sm text-zinc-300 block">Hermès</span>
+              <span class="text-xs text-zinc-500">VIP Client Experience Event Guest</span>
             </div>
           </div>
         </div>
@@ -828,8 +861,8 @@
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500 uppercase">L</div>
             <div>
-              <span class="text-sm text-zinc-300 font-serif block">Louis</span>
-              <span class="text-xs text-zinc-600 font-serif">Private Dinner Guest</span>
+              <span class="text-sm text-zinc-300 block">Louis</span>
+              <span class="text-xs text-zinc-500">Private Dinner Guest</span>
             </div>
           </div>
         </div>
@@ -900,7 +933,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Hermès</span>
-            <span class="text-sm text-zinc-500 font-serif">VIP Client Experience</span>
+            <span class="text-sm text-zinc-400">VIP Client Experience</span>
           </div>
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
@@ -909,7 +942,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Macau International Airport</span>
-            <span class="text-sm text-zinc-500 font-serif">International Route Promotion Magic Show</span>
+            <span class="text-sm text-zinc-400">International Route Promotion Magic Show</span>
           </div>
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
@@ -918,7 +951,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Macau Int'l Environmental Co-operation Forum 2026</span>
-            <span class="text-sm text-zinc-500 font-serif">Eco-themed Magic Performance</span>
+            <span class="text-sm text-zinc-400">Eco-themed Magic Performance</span>
           </div>
         </div>
         <div class="group relative bg-zinc-900/30 border border-zinc-800/50 glow-hover overflow-hidden">
@@ -927,7 +960,7 @@
           </div>
           <div class="p-6 relative z-10 bg-gradient-to-t from-zinc-900 via-zinc-900/95 to-transparent -mt-16 pt-12">
             <span class="text-xl font-serif text-white block">Tin Kang Kok Macau Souvenirs</span>
-            <span class="text-sm text-zinc-500 font-serif">"Lucky God" Chocolate Product Launch</span>
+            <span class="text-sm text-zinc-400">"Lucky God" Chocolate Product Launch</span>
           </div>
         </div>
       </div>
@@ -938,19 +971,19 @@
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Galaxy Macau</span>
-          <span class="text-sm text-zinc-500 font-serif">Oasis Restaurant & Wave Pool</span>
+          <span class="text-sm text-zinc-400">Oasis Restaurant & Wave Pool</span>
         </li>
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Altira Macau</span>
-          <span class="text-sm text-zinc-500 font-serif">Aurora Restaurant · 4 Consecutive Years</span>
+          <span class="text-sm text-zinc-400">Aurora Restaurant · 4 Consecutive Years</span>
         </li>
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Grand Lisboa Palace</span>
-          <span class="text-sm text-zinc-500 font-serif">Plaza Performances & Buffet Restaurant</span>
+          <span class="text-sm text-zinc-400">Plaza Performances & Buffet Restaurant</span>
         </li>
         <li class="flex flex-col">
           <span class="text-xl font-serif text-white">Studio City</span>
-          <span class="text-sm text-zinc-500 font-serif">House of Magic · Assistant Stage Manager</span>
+          <span class="text-sm text-zinc-400">House of Magic · Assistant Stage Manager</span>
         </li>
       </ul>
     </div>
@@ -970,12 +1003,12 @@
               <div class="w-14 h-14 rounded-full flex items-center justify-center" style="border:1px solid rgba(212,175,106,0.4);">
                 <div class="play-triangle"></div>
               </div>
-              <p class="text-xs tracking-widest uppercase text-zinc-600 font-serif text-center">Coming Soon</p>
+              <p class="text-xs tracking-widest uppercase text-zinc-500 text-center">Coming Soon</p>
             </div>
           </div>
           <div class="p-5">
             <h4 class="text-base text-white font-serif">2026 STDM Annual staff Party</h4>
-            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1 font-serif">Highlights Reel</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Highlights Reel</p>
           </div>
         </div>
 
@@ -986,12 +1019,12 @@
               <div class="w-14 h-14 rounded-full flex items-center justify-center" style="border:1px solid rgba(212,175,106,0.4);">
                 <div class="play-triangle"></div>
               </div>
-              <p class="text-xs tracking-widest uppercase text-zinc-600 font-serif text-center">Coming Soon</p>
+              <p class="text-xs tracking-widest uppercase text-zinc-500 text-center">Coming Soon</p>
             </div>
           </div>
           <div class="p-5">
             <h4 class="text-base text-white font-serif">VIP & Close-up Magic</h4>
-            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1 font-serif">Private Event Footage</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Private Event Footage</p>
           </div>
         </div>
 
@@ -1002,12 +1035,12 @@
               <div class="w-14 h-14 rounded-full flex items-center justify-center" style="border:1px solid rgba(212,175,106,0.4);">
                 <div class="play-triangle"></div>
               </div>
-              <p class="text-xs tracking-widest uppercase text-zinc-600 font-serif text-center">Coming Soon</p>
+              <p class="text-xs tracking-widest uppercase text-zinc-500 text-center">Coming Soon</p>
             </div>
           </div>
           <div class="p-5">
             <h4 class="text-base text-white font-serif">2023 Chimelong Paradise Resident Magic Show</h4>
-            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1 font-serif">The finale performance</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">The finale performance</p>
           </div>
         </div>
 
@@ -1028,10 +1061,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Close-up & VIP Magic</h4>
-            <p class="text-zinc-500 mb-4 font-serif">Tailored for private dinners, VIP receptions and brand events. Intimate, unforgettable, elegant.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">Private Dinners · VIP Receptions · Brand Events · Cocktail Parties</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">Suitable for 10–80 guests · Book 2–4 weeks ahead</p>
-            <p class="text-sm italic text-zinc-400 font-serif">Every table, a front-row seat.</p>
+            <p class="text-zinc-400 mb-4">Tailored for private dinners, VIP receptions and brand events. Intimate, unforgettable, elegant.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">Private Dinners · VIP Receptions · Brand Events · Cocktail Parties</p>
+            <p class="text-xs text-gold-soft uppercase tracking-wider mb-3">Suitable for 10–80 guests · Book 2–4 weeks ahead</p>
+            <p class="text-sm italic text-zinc-300 font-serif">Every table, a front-row seat.</p>
           </div>
         </div>
         
@@ -1041,10 +1074,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Stage Illusion Show</h4>
-            <p class="text-zinc-500 mb-4 font-serif">Grand-scale illusions for galas, award ceremonies and corporate showcases.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">Annual Galas · Award Ceremonies · Festive Dinners · Mall Activations</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">Suitable for 100–5,000+ guests · Book 6–8 weeks ahead</p>
-            <p class="text-sm italic text-zinc-400 font-serif">A grand stage, one breathtaking moment.</p>
+            <p class="text-zinc-400 mb-4">Grand-scale illusions for galas, award ceremonies and corporate showcases.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">Annual Galas · Award Ceremonies · Festive Dinners · Mall Activations</p>
+            <p class="text-xs text-gold-soft uppercase tracking-wider mb-3">Suitable for 100–5,000+ guests · Book 6–8 weeks ahead</p>
+            <p class="text-sm italic text-zinc-300 font-serif">A grand stage, one breathtaking moment.</p>
           </div>
         </div>
 
@@ -1054,10 +1087,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Brand Experience Design</h4>
-            <p class="text-zinc-500 mb-4 font-serif">Custom illusion concepts built around your brand story, product launch or campaign.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">Brand Storytelling Illusions · Product Launches · Promotional Campaigns</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">For brand partnerships · Book 8–12 weeks ahead</p>
-            <p class="text-sm italic text-zinc-400 font-serif">Turning brand stories into moments of wonder.</p>
+            <p class="text-zinc-400 mb-4">Custom illusion concepts built around your brand story, product launch or campaign.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">Brand Storytelling Illusions · Product Launches · Promotional Campaigns</p>
+            <p class="text-xs text-gold-soft uppercase tracking-wider mb-3">For brand partnerships · Book 8–12 weeks ahead</p>
+            <p class="text-sm italic text-zinc-300 font-serif">Turning brand stories into moments of wonder.</p>
           </div>
         </div>
 
@@ -1067,10 +1100,10 @@
           </div>
           <div class="p-8 relative z-10 bg-gradient-to-t from-zinc-950 via-zinc-900/95 to-transparent -mt-20 pt-24">
             <h4 class="text-2xl font-serif text-white mb-2">Creative Consultation</h4>
-            <p class="text-zinc-500 mb-4 font-serif">From concept to stage — production design, illusion planning and technical direction.</p>
-            <p class="text-sm font-medium text-zinc-300 font-serif mb-3">Concept to Stage · Creative Planning · Technical Direction · Full Support</p>
-            <p class="text-xs text-zinc-600 uppercase tracking-wider font-serif mb-3">For large production teams · Quoted by project scope</p>
-            <p class="text-sm italic text-zinc-400 font-serif">From first idea to final curtain, fully in your corner.</p>
+            <p class="text-zinc-400 mb-4">From concept to stage — production design, illusion planning and technical direction.</p>
+            <p class="text-sm font-medium text-zinc-200 mb-3">Concept to Stage · Creative Planning · Technical Direction · Full Support</p>
+            <p class="text-xs text-gold-soft uppercase tracking-wider mb-3">For large production teams · Quoted by project scope</p>
+            <p class="text-sm italic text-zinc-300 font-serif">From first idea to final curtain, fully in your corner.</p>
           </div>
         </div>
 
@@ -1078,7 +1111,7 @@
 
       <div class="mt-12 sm:mt-16 lg:mt-24 max-w-2xl mx-auto text-center bg-zinc-900/50 p-6 sm:p-8 md:p-12 border border-zinc-800">
         <h4 class="text-2xl font-serif mb-4 text-white">Next Step</h4>
-        <p class="text-zinc-400 mb-8 font-serif">Every collaboration begins with a conversation. Tell us about your event, and Billy will personally design a proposal tailored to your vision.</p>
+        <p class="text-zinc-300 mb-8">Every collaboration begins with a conversation. Tell us about your event, and Billy will personally design a proposal tailored to your vision.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="https://wa.me/85366551654" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-gold text-gold-dark px-8 py-3 font-serif font-bold tracking-wider uppercase gold-cta-glow">
             <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
@@ -1096,7 +1129,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-16">
       <h2 class="text-xs tracking-[0.3em] text-zinc-500 uppercase mb-4 text-center font-serif">Behind The Curtain</h2>
       <h3 class="text-3xl sm:text-4xl font-serif text-center text-white mb-3">Performance Gallery</h3>
-      <p class="text-center text-zinc-600 text-sm font-serif mb-10 sm:mb-14">Click any photo to view full screen</p>
+      <p class="text-center text-zinc-500 text-sm mb-10 sm:mb-14">Click any photo to view full screen</p>
       <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3"></div>
     </div>
   </section>
@@ -1128,30 +1161,30 @@
       <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-5 mb-16 max-w-2xl mx-auto">
         <a href="tel:+85366551654" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="phone" class="w-4 h-4"></i>
-          <span class="font-serif">+853 6655 1654</span>
+          <span>+853 6655 1654</span>
         </a>
         <a href="https://wa.me/85366551654" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span class="font-serif">WhatsApp</span>
+          <span>WhatsApp</span>
         </a>
         <a href="mailto:BillyKongMagic@gmail.com" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="mail" class="w-4 h-4"></i>
-          <span class="font-serif">BillyKongMagic@gmail.com</span>
+          <span>BillyKongMagic@gmail.com</span>
         </a>
         <a href="https://BillyKongMagic.com" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="globe" class="w-4 h-4"></i>
-          <span class="font-serif">BillyKongMagic.com</span>
+          <span>BillyKongMagic.com</span>
         </a>
         <a href="https://instagram.com/Billykongmagic" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
           <i data-lucide="instagram" class="w-4 h-4"></i>
-          <span class="font-serif">@Billykongmagic</span>
+          <span>@Billykongmagic</span>
         </a>
       </div>
 
       <div class="border-t border-zinc-900 pt-16">
         <p class="text-xl italic font-serif text-white mb-4">"Beyond Magic. Beyond Imagination."</p>
         <p class="text-sm text-zinc-500 tracking-widest mb-2 font-serif">Technology × Theatre × Wonder</p>
-        <p class="text-sm text-zinc-600 font-serif">Every performance, a memory that can't be replicated.</p>
+        <p class="text-sm text-zinc-500">Every performance, a memory that can't be replicated.</p>
       </div>
     </div>
   </footer>
