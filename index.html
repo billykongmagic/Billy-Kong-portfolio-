@@ -255,7 +255,7 @@
     @media (min-width: 1024px) {
       .hero-grid {
         height: 100%;
-        grid-template-columns: 1.3fr 0.85fr 0.85fr;
+        grid-template-columns: 1.15fr 0.95fr 0.9fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas:
           "a b b"
@@ -302,6 +302,23 @@
       { name: "glp",                       url: "logo/glp.png" },
       { name: "geg",                       url: "logo/geg.png" },
     ];
+
+    // ==========================================
+    // 🌟 照片對焦點設定（解決人物主體被裁掉的問題）
+    // 桌面版 Hero 四宮格的格子比例較極端（尤其左側跨欄大圖），
+    // object-cover 預設會從正中央裁切，如果人物不在正中央就會被切掉。
+    // 在這裡填入該照片主體大概的位置，系統就會照這個點裁切：
+    //   "center"      置中（預設）
+    //   "top"         主體偏上方（例如人物站著、頭在畫面上半部）
+    //   "bottom"      主體偏下方
+    //   "30% 20%"     自訂座標：左 30%、上 20%（第一個數字是水平、第二個是垂直）
+    // 不確定就先試 "top" 或 "center top"，存檔重新整理看效果再微調。
+    // ==========================================
+    const HERO_FOCAL_POINTS = {
+      heroGrid1: "center top",
+      heroGrid2: "center",
+      heroGrid3: "center top",
+    };
 
     const MY_VIDEOS = {
       video1: "SDjyESXXXKg",
@@ -357,6 +374,9 @@
             }
             img.classList.remove('hidden');
             img.parentElement.style.display = 'block';
+            if (HERO_FOCAL_POINTS[id]) {
+              img.style.objectPosition = HERO_FOCAL_POINTS[id];
+            }
             if (id === 'logo') {
               const fallback = document.getElementById('logoFallback');
               if (fallback) fallback.classList.add('hidden');
