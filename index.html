@@ -252,6 +252,13 @@
     .hero-grid .hg-b { grid-area: b; }
     .hero-grid .hg-c { grid-area: c; }
     .hero-grid .hg-d { grid-area: d; }
+    /* 🌟 模糊背景填色層：放在完整顯示（object-contain）的照片後面，
+       填滿因比例不合而空出的區域，避免出現大片生硬的空白 */
+    .hero-blur-bg {
+      filter: blur(24px) brightness(0.42) saturate(1.05) grayscale(0.3);
+      transform: scale(1.2);
+      z-index: 0;
+    }
     @media (min-width: 1024px) {
       .hero-grid {
         height: 100%;
@@ -360,6 +367,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       Object.entries(MY_PHOTOS).forEach(([id, url]) => {
         const img = document.getElementById(id);
+        const bgImg = document.getElementById(id + 'Bg'); // 模糊背景填色層（若該格有對應的話）
         if (img) {
           if (url && url.trim() !== "") {
             img.src = url;
@@ -375,6 +383,12 @@
             if (HERO_FOCAL_POINTS[id]) {
               img.style.objectPosition = HERO_FOCAL_POINTS[id];
             }
+            if (bgImg) {
+              bgImg.src = url;
+              bgImg.loading = 'lazy';
+              bgImg.decoding = 'async';
+              bgImg.classList.remove('hidden');
+            }
             if (id === 'logo') {
               const fallback = document.getElementById('logoFallback');
               if (fallback) fallback.classList.add('hidden');
@@ -382,6 +396,7 @@
             }
           } else {
             img.classList.add('hidden');
+            if (bgImg) bgImg.classList.add('hidden');
             if (id.startsWith('heroGrid')) {
               img.parentElement.style.display = 'none';
             }
@@ -630,13 +645,16 @@
     <!-- 首頁三張預覽圖與 Logo：grid-template-areas 明確版位，手機等分 2×2，桌面（lg）左側大圖＋右側上下分割 -->
     <div class="hero-grid h-auto lg:h-[calc(100vh)] bg-zinc-900 gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
       <div class="hg-a relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-contain reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+        <img id="heroGrid1Bg" aria-hidden="true" alt="" class="hidden absolute inset-0 w-full h-full object-cover hero-blur-bg" />
+        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-contain z-10 reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="hg-b relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-contain reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+        <img id="heroGrid2Bg" aria-hidden="true" alt="" class="hidden absolute inset-0 w-full h-full object-cover hero-blur-bg" />
+        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-contain z-10 reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="hg-c relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-contain reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+        <img id="heroGrid3Bg" aria-hidden="true" alt="" class="hidden absolute inset-0 w-full h-full object-cover hero-blur-bg" />
+        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-contain z-10 reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="hg-d relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
         <div id="logoFallback" class="text-center p-3 relative z-10">
