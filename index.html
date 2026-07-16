@@ -238,37 +238,6 @@
 
     .logo-cell { position: relative; }
     .logo-cell img { position: absolute; }
-
-    /* 🌟 Hero 四宮格：改用 grid-template-areas 明確指定版位，避免 row-span 在格數不足時溢出到隱藏第三列 */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-areas:
-        "a b"
-        "c d";
-    }
-    .hero-grid .hg-a { grid-area: a; }
-    .hero-grid .hg-b { grid-area: b; }
-    .hero-grid .hg-c { grid-area: c; }
-    .hero-grid .hg-d { grid-area: d; }
-    /* 🌟 模糊背景填色層：放在完整顯示（object-contain）的照片後面，
-       填滿因比例不合而空出的區域，避免出現大片生硬的空白 */
-    .hero-blur-bg {
-      filter: blur(24px) brightness(0.42) saturate(1.05) grayscale(0.3);
-      transform: scale(1.2);
-      z-index: 0;
-    }
-    @media (min-width: 1024px) {
-      .hero-grid {
-        height: 100%;
-        grid-template-columns: 1.15fr 0.95fr 0.9fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-          "a b b"
-          "a c d";
-      }
-    }
   </style>
 
   <script>
@@ -311,18 +280,20 @@
     ];
 
     // ==========================================
-    // 🌟 照片對焦點設定
-    // Hero 四宮格已改用 object-contain（完整顯示照片，不裁切），
-    // 主體不會被切掉了。這裡的設定只影響照片在格子裡「靠哪一邊對齊」，
-    // 大部分情況維持 "center" 置中即可，除非想刻意靠上/靠下對齊。
-    //   "center"      置中（預設，建議）
-    //   "top"         貼齊格子上緣
-    //   "bottom"      貼齊格子下緣
+    // 🌟 照片對焦點設定（避免裁切時切到人物頭部）
+    // 四宮格是等分正方形，object-cover 會自動裁切填滿格子。
+    // 如果照片主體（例如頭部）沒有正好在正中央，可能被裁到，
+    // 這裡可以指定裁切基準點：
+    //   "center"      置中裁切（預設）
+    //   "top"         保留上半部，適合人物站姿、頭在畫面上方的直式照片
+    //   "bottom"      保留下半部
+    //   "center 20%"  自訂：水平置中、裁切基準在畫面上方 20% 處
+    // 上傳照片後打開網站看效果，被切到頭就把對應那行改成 "top" 或微調數值。
     // ==========================================
     const HERO_FOCAL_POINTS = {
-      heroGrid1: "center",
+      heroGrid1: "top",
       heroGrid2: "center",
-      heroGrid3: "center",
+      heroGrid3: "top",
     };
 
     const MY_VIDEOS = {
@@ -367,7 +338,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       Object.entries(MY_PHOTOS).forEach(([id, url]) => {
         const img = document.getElementById(id);
-        const bgImg = document.getElementById(id + 'Bg'); // 模糊背景填色層（若該格有對應的話）
         if (img) {
           if (url && url.trim() !== "") {
             img.src = url;
@@ -383,12 +353,6 @@
             if (HERO_FOCAL_POINTS[id]) {
               img.style.objectPosition = HERO_FOCAL_POINTS[id];
             }
-            if (bgImg) {
-              bgImg.src = url;
-              bgImg.loading = 'lazy';
-              bgImg.decoding = 'async';
-              bgImg.classList.remove('hidden');
-            }
             if (id === 'logo') {
               const fallback = document.getElementById('logoFallback');
               if (fallback) fallback.classList.add('hidden');
@@ -396,7 +360,6 @@
             }
           } else {
             img.classList.add('hidden');
-            if (bgImg) bgImg.classList.add('hidden');
             if (id.startsWith('heroGrid')) {
               img.parentElement.style.display = 'none';
             }
@@ -642,21 +605,18 @@
       </div>
     </div>
 
-    <!-- 首頁三張預覽圖與 Logo：grid-template-areas 明確版位，手機等分 2×2，桌面（lg）左側大圖＋右側上下分割 -->
-    <div class="hero-grid h-auto lg:h-[calc(100vh)] bg-zinc-900 gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
-      <div class="hg-a relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid1Bg" aria-hidden="true" alt="" class="hidden absolute inset-0 w-full h-full object-cover hero-blur-bg" />
-        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-contain z-10 reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+    <!-- 首頁三張預覽圖與 Logo：四格等分，比例正常，不需要裁切或模糊處理的花招 -->
+    <div class="grid grid-cols-2 gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px] h-auto lg:h-[calc(100vh)] bg-zinc-900">
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
+        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="hg-b relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid2Bg" aria-hidden="true" alt="" class="hidden absolute inset-0 w-full h-full object-cover hero-blur-bg" />
-        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-contain z-10 reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
+        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="hg-c relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid3Bg" aria-hidden="true" alt="" class="hidden absolute inset-0 w-full h-full object-cover hero-blur-bg" />
-        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-contain z-10 reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+      <div class="relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
+        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
-      <div class="hg-d relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
+      <div class="relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
         <div id="logoFallback" class="text-center p-3 relative z-10">
           <i data-lucide="sparkles" class="w-6 h-6 mx-auto mb-2 text-zinc-600 group-hover:text-white transition-colors duration-500"></i>
           <p class="text-[10px] tracking-widest uppercase text-zinc-500 group-hover:text-zinc-300 transition-colors duration-500 font-serif">Premium<br/>Experience</p>
