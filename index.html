@@ -304,20 +304,18 @@
     ];
 
     // ==========================================
-    // 🌟 照片對焦點設定（解決人物主體被裁掉的問題）
-    // 桌面版 Hero 四宮格的格子比例較極端（尤其左側跨欄大圖），
-    // object-cover 預設會從正中央裁切，如果人物不在正中央就會被切掉。
-    // 在這裡填入該照片主體大概的位置，系統就會照這個點裁切：
-    //   "center"      置中（預設）
-    //   "top"         主體偏上方（例如人物站著、頭在畫面上半部）
-    //   "bottom"      主體偏下方
-    //   "30% 20%"     自訂座標：左 30%、上 20%（第一個數字是水平、第二個是垂直）
-    // 不確定就先試 "top" 或 "center top"，存檔重新整理看效果再微調。
+    // 🌟 照片對焦點設定
+    // Hero 四宮格已改用 object-contain（完整顯示照片，不裁切），
+    // 主體不會被切掉了。這裡的設定只影響照片在格子裡「靠哪一邊對齊」，
+    // 大部分情況維持 "center" 置中即可，除非想刻意靠上/靠下對齊。
+    //   "center"      置中（預設，建議）
+    //   "top"         貼齊格子上緣
+    //   "bottom"      貼齊格子下緣
     // ==========================================
     const HERO_FOCAL_POINTS = {
-      heroGrid1: "center top",
+      heroGrid1: "center",
       heroGrid2: "center",
-      heroGrid3: "center top",
+      heroGrid3: "center",
     };
 
     const MY_VIDEOS = {
@@ -632,13 +630,13 @@
     <!-- 首頁三張預覽圖與 Logo：grid-template-areas 明確版位，手機等分 2×2，桌面（lg）左側大圖＋右側上下分割 -->
     <div class="hero-grid h-auto lg:h-[calc(100vh)] bg-zinc-900 gap-1 lg:gap-2 p-1 lg:p-2 lg:pt-[60px]">
       <div class="hg-a relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+        <img id="heroGrid1" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 1" class="hidden absolute inset-0 w-full h-full object-contain reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="hg-b relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+        <img id="heroGrid2" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 2" class="hidden absolute inset-0 w-full h-full object-contain reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="hg-c relative overflow-hidden group bg-zinc-800 aspect-square lg:aspect-auto">
-        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-cover reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
+        <img id="heroGrid3" alt="Billy Kong 江尚峰 國際舞台魔術演出花絮 3" class="hidden absolute inset-0 w-full h-full object-contain reveal-target reveal-opacity-60 opacity-60 grayscale transition-all duration-1000 ease-out" />
       </div>
       <div class="hg-d relative overflow-hidden group bg-zinc-950 flex flex-col items-center justify-center aspect-square lg:aspect-auto">
         <div id="logoFallback" class="text-center p-3 relative z-10">
