@@ -9,10 +9,10 @@
   <meta name="description" content="江尚峰 Billy Kong — Franz Harary 亞洲核心成員，逾20年國際舞台經驗，3,000+ 場演出，澳門五星級酒店常駐魔術師。提供近距離魔術、舞台幻術、品牌訂製魔術體驗及全程製作顧問服務。Billy Kong is an internationally touring illusionist and stage director based in Macau, handpicked by world-renowned illusionist Franz Harary.">
   <meta name="keywords" content="Billy Kong, 江尚峰, 澳門魔術師, 幻術師, illusionist Macau, magician Macau, Franz Harary, 舞台魔術, VIP魔術, 品牌活動魔術, close-up magic Macau, stage illusion show">
   <meta name="author" content="Billy Kong 江尚峰">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, follow">
   <meta name="google-site-verification" content="swGx1BYdssErz1pbeR2jsYgmnHGrefChIDedp7_vA9k" />
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://billykongmagic.github.io/BillyKong-portfolio/">
   <link rel="alternate" hreflang="zh-Hant" href="https://billykongmagic.github.io/BillyKong-portfolio/">
   <link rel="alternate" hreflang="en" href="https://billykongmagic.github.io/BillyKong-portfolio/index-en.html">
@@ -30,7 +30,7 @@
     "alternateName": "江尚峰",
     "jobTitle": "Illusionist & Stage Director",
     "url": "https://billykongmagic.github.io/BillyKong-portfolio/",
-    "image": "https://billykongmagic.github.io/BillyKong-portfolio/hero.jpg",
+    "image": "https://billykongmagic.github.io/BillyKong-portfolio/hero.webp",
     "sameAs": [
       "https://instagram.com/Billykongmagic",
       "https://BillyKongMagic.com"
@@ -41,7 +41,6 @@
       "addressCountry": "MO"
     },
     "email": "mailto:BillyKongMagic@gmail.com",
-    "telephone": "+853-6655-1654",
     "memberOf": {
       "@type": "Organization",
       "name": "FISM - Fédération Internationale des Sociétés Magiques"
@@ -55,7 +54,7 @@
   <meta property="og:url" content="https://billykongmagic.github.io/BillyKong-portfolio/">
   <meta property="og:title" content="Billy Kong 江尚峰｜國際巡演幻術大師 Macau Illusionist">
   <meta property="og:description" content="Franz Harary 亞洲核心成員，逾20年國際舞台經驗，3,000+ 場演出，澳門五星級酒店常駐魔術師。近距離魔術、舞台幻術、品牌訂製體驗，為你的活動創造無法複製的記憶。">
-  <meta property="og:image" content="https://billykongmagic.github.io/BillyKong-portfolio/hero.jpg">
+  <meta property="og:image" content="https://billykongmagic.github.io/BillyKong-portfolio/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="zh_HK">
@@ -65,12 +64,41 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Billy Kong 江尚峰｜國際巡演幻術大師 Macau Illusionist">
   <meta name="twitter:description" content="Franz Harary 亞洲核心成員，逾20年國際舞台經驗，3,000+ 場演出，澳門五星級酒店常駐魔術師。">
-  <meta name="twitter:image" content="https://billykongmagic.github.io/BillyKong-portfolio/hero.jpg">
+  <meta name="twitter:image" content="https://billykongmagic.github.io/BillyKong-portfolio/og-image.jpg">
 
   <!-- 引入 Tailwind CSS（本地編譯版，取代開發用 CDN） -->
   <link rel="stylesheet" href="tailwind.css">
   <!-- 引入 Lucide Icons 圖示庫 -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+  /* Lucide Icons 精簡內聯版：僅收錄本頁用到的 15 個圖標，離線可用，不再依賴 unpkg CDN */
+  (function () {
+    var ICONS = {"menu": "<path d=\"M4 5h16\" /> <path d=\"M4 12h16\" /> <path d=\"M4 19h16\" />", "x": "<path d=\"M18 6 6 18\" /> <path d=\"m6 6 12 12\" />", "arrow-up": "<path d=\"m5 12 7-7 7 7\" /> <path d=\"M12 19V5\" />", "award": "<path d=\"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526\" /> <circle cx=\"12\" cy=\"8\" r=\"6\" />", "sparkles": "<path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\" /> <path d=\"M20 2v4\" /> <path d=\"M22 4h-4\" /> <circle cx=\"4\" cy=\"20\" r=\"2\" />", "star": "<path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\" />", "globe": "<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\" /> <path d=\"M2 12h20\" />", "instagram": "<rect width=\"20\" height=\"20\" x=\"2\" y=\"2\" rx=\"5\" ry=\"5\" /> <path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\" /> <line x1=\"17.5\" x2=\"17.51\" y1=\"6.5\" y2=\"6.5\" />", "mail": "<path d=\"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7\" /> <rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" />", "map-pin": "<path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\" /> <circle cx=\"12\" cy=\"10\" r=\"3\" />", "message-circle": "<path d=\"M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719\" />", "phone": "<path d=\"M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384\" />", "chevron-left": "<path d=\"m15 18-6-6 6-6\" />", "chevron-right": "<path d=\"m9 18 6-6-6-6\" />", "check-circle": "<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"m9 12 2 2 4-4\" />"};
+    window.lucide = {
+      createIcons: function () {
+        document.querySelectorAll("[data-lucide]").forEach(function (el) {
+          var name = el.getAttribute("data-lucide");
+          var inner = ICONS[name];
+          if (!inner) return;
+          var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+          svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+          svg.setAttribute("viewBox", "0 0 24 24");
+          svg.setAttribute("width", "24"); svg.setAttribute("height", "24");
+          svg.setAttribute("fill", "none"); svg.setAttribute("stroke", "currentColor");
+          svg.setAttribute("stroke-width", "2");
+          svg.setAttribute("stroke-linecap", "round"); svg.setAttribute("stroke-linejoin", "round");
+          svg.setAttribute("aria-hidden", "true");
+          for (var i = 0; i < el.attributes.length; i++) {
+            var a = el.attributes[i];
+            if (a.name !== "data-lucide") svg.setAttribute(a.name, a.value);
+          }
+          svg.setAttribute("data-lucide", name);
+          svg.innerHTML = inner;
+          el.parentNode.replaceChild(svg, el);
+        });
+      }
+    };
+  })();
+  </script>
 
   <style>
     /* 🌟 字體已改用 <link> 標籤在 head 提早載入，見上方 preconnect 區塊 */
@@ -245,38 +273,38 @@
     // 🌟 照片與設定
     // ==========================================
     const MY_PHOTOS = {
-      heroBackground: "hero.jpg",
-      heroGrid1: "hero2.jpg",
-      heroGrid2: "hero3.jpg",
-      heroGrid3: "hero4.jpg",
-      logo: "logo.png",
-      tour1: "tour.jpg",
-      tour2: "tour2.jpg",
-      tour3: "tour3.jpg",
-      tour4: "tour4.jpg",
-      service1: "service.jpg",
-      service2: "service2.jpg",
-      service3: "service3.jpg",
-      service4: "service4.jpg",
-      brand1: "brand1.jpg",
-      brand2: "brand2.jpg",
-      brand3: "brand3.jpg",
-      brand4: "brand4.jpg",
+      heroBackground: "hero.webp",
+      heroGrid1: "hero2.webp",
+      heroGrid2: "hero3.webp",
+      heroGrid3: "hero4.webp",
+      logo: "logo.webp",
+      tour1: "tour.webp",
+      tour2: "tour2.webp",
+      tour3: "tour3.webp",
+      tour4: "tour4.webp",
+      service1: "service.webp",
+      service2: "service2.webp",
+      service3: "service3.webp",
+      service4: "service4.webp",
+      brand1: "brand1.webp",
+      brand2: "brand2.webp",
+      brand3: "brand3.webp",
+      brand4: "brand4.webp",
     };
 
     const MY_LOGOS = [
-      { name: "Hermès",                url: "logo/hermes.png" },
-      { name: "澳門國際機場",            url: "logo/airport.png" },
-      { name: "澳門國際環保合作發展論壇", url: "logo/miecf.png" },
-      { name: "verifone",          url: "logo/verifone.png" },
-      { name: "Franz harry",                       url: "logo/Franz.png" },
-      { name: "Google",                       url: "logo/google.png" },
-      { name: "Altira",                       url: "logo/altira.png" },
-      { name: "Paiza",                       url: "logo/paiza.png" },
-      { name: "長隆",                       url: "logo/長隆.png" },
-      { name: "stdm",                       url: "logo/stdm.png" },
-      { name: "glp",                       url: "logo/glp.png" },
-      { name: "geg",                       url: "logo/geg.png" },
+      { name: "Hermès",                url: "logo/hermes.webp" },
+      { name: "澳門國際機場",            url: "logo/airport.webp" },
+      { name: "澳門國際環保合作發展論壇", url: "logo/miecf.webp" },
+      { name: "verifone",          url: "logo/verifone.webp" },
+      { name: "Franz harry",                       url: "logo/Franz.webp" },
+      { name: "Google",                       url: "logo/google.webp" },
+      { name: "Altira",                       url: "logo/altira.webp" },
+      { name: "Paiza",                       url: "logo/paiza.webp" },
+      { name: "長隆",                       url: "logo/長隆.webp" },
+      { name: "stdm",                       url: "logo/stdm.webp" },
+      { name: "glp",                       url: "logo/glp.webp" },
+      { name: "geg",                       url: "logo/geg.webp" },
     ];
 
     // ==========================================
@@ -309,30 +337,30 @@
     // caption 是圖片說明（可選，留空也沒問題）
     // ==========================================
     const MY_GALLERY = [
-      { url: "photo/1.jpg", caption: "" },
-      { url: "photo/2.jpg", caption: "" },
-      { url: "photo/3.jpg", caption: "" },
-      { url: "photo/4.jpg", caption: "" },
-      { url: "photo/5.jpg", caption: "" },
-      { url: "photo/6.jpg", caption: "" },
-      { url: "photo/7.jpg", caption: "" },
-      { url: "photo/8.jpg", caption: "" },
-      { url: "photo/9.jpg", caption: "" },
-      { url: "photo/10.jpg", caption: "" },
-      { url: "photo/11.jpg", caption: "" },
-      { url: "photo/12.jpg", caption: "" },
-      { url: "photo/13.jpg", caption: "" },
-      { url: "photo/14.jpg", caption: "" },
-      { url: "photo/15.jpg", caption: "" },
-      { url: "photo/16.jpg", caption: "" },
-      { url: "photo/17.jpg", caption: "" },
-      { url: "photo/18.jpg", caption: "" },
-      { url: "photo/19.jpg", caption: "" },
-      { url: "photo/20.jpg", caption: "" },
-      { url: "photo/21.jpg", caption: "" },
-      { url: "photo/22.jpg", caption: "" },
-      { url: "photo/23.jpg", caption: "" },
-      { url: "photo/24.jpg", caption: "" },
+      { url: "photo/thumb/1.webp", full: "photo/full/1.webp", caption: "" },
+      { url: "photo/thumb/2.webp", full: "photo/full/2.webp", caption: "" },
+      { url: "photo/thumb/3.webp", full: "photo/full/3.webp", caption: "" },
+      { url: "photo/thumb/4.webp", full: "photo/full/4.webp", caption: "" },
+      { url: "photo/thumb/5.webp", full: "photo/full/5.webp", caption: "" },
+      { url: "photo/thumb/6.webp", full: "photo/full/6.webp", caption: "" },
+      { url: "photo/thumb/7.webp", full: "photo/full/7.webp", caption: "" },
+      { url: "photo/thumb/8.webp", full: "photo/full/8.webp", caption: "" },
+      { url: "photo/thumb/9.webp", full: "photo/full/9.webp", caption: "" },
+      { url: "photo/thumb/10.webp", full: "photo/full/10.webp", caption: "" },
+      { url: "photo/thumb/11.webp", full: "photo/full/11.webp", caption: "" },
+      { url: "photo/thumb/12.webp", full: "photo/full/12.webp", caption: "" },
+      { url: "photo/thumb/13.webp", full: "photo/full/13.webp", caption: "" },
+      { url: "photo/thumb/14.webp", full: "photo/full/14.webp", caption: "" },
+      { url: "photo/thumb/15.webp", full: "photo/full/15.webp", caption: "" },
+      { url: "photo/thumb/16.webp", full: "photo/full/16.webp", caption: "" },
+      { url: "photo/thumb/17.webp", full: "photo/full/17.webp", caption: "" },
+      { url: "photo/thumb/18.webp", full: "photo/full/18.webp", caption: "" },
+      { url: "photo/thumb/19.webp", full: "photo/full/19.webp", caption: "" },
+      { url: "photo/thumb/20.webp", full: "photo/full/20.webp", caption: "" },
+      { url: "photo/thumb/21.webp", full: "photo/full/21.webp", caption: "" },
+      { url: "photo/thumb/22.webp", full: "photo/full/22.webp", caption: "" },
+      { url: "photo/thumb/23.webp", full: "photo/full/23.webp", caption: "" },
+      { url: "photo/thumb/24.webp", full: "photo/full/24.webp", caption: "" },
     ];
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -448,7 +476,7 @@
       let lbCurrent = 0;
       function openLightbox(i) {
         lbCurrent = i;
-        lbImg.src = activePhotos[i].url;
+        lbImg.src = activePhotos[i].full || activePhotos[i].url;
         lbImg.alt = `Billy Kong 江尚峰 澳門魔術師 幻術師 國際舞台巡演幻術表演花絮 ${i + 1}` + (activePhotos[i].caption ? ` - ${activePhotos[i].caption}` : '');
         lbCaption.textContent = activePhotos[i].caption || '';
         lbCounter.textContent = (i + 1) + ' / ' + activePhotos.length;
@@ -501,7 +529,7 @@
       if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
           mobileMenu.classList.toggle('open');
-          const icon = menuBtn.querySelector('i');
+          const icon = menuBtn.querySelector('[data-lucide]');
           const isOpen = mobileMenu.classList.contains('open');
           if (icon) icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
           lucide.createIcons();
@@ -509,7 +537,7 @@
         mobileMenu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
-            const icon = menuBtn.querySelector('i');
+            const icon = menuBtn.querySelector('[data-lucide]');
             if (icon) icon.setAttribute('data-lucide', 'menu');
             lucide.createIcons();
           });
